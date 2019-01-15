@@ -4,13 +4,18 @@
   "description": "cli tool for querying lemon 64 and returning info on specific games",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "hayesmaker64",
   "license": "ISC",
+  "bin": {
+    "qlemon": "./index.js"
+  },
   "dependencies": {
     "@octokit/rest": "^16.8.0",
+    "axios": "^0.18.0",
     "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.2",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
     "configstore": "^4.0.0",
@@ -19,6 +24,12 @@
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "simple-git": "^1.107.0",
-    "touch": "^3.1.0"
+    "touch": "^3.1.0",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.2"
   }
 }
