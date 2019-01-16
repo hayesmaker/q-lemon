@@ -7,33 +7,39 @@ const axios = require('axios');
 const scraper = require('../lib/lemon-scraper');
 
 
-describe('q-lemon :: lemon api', function () {
-  describe('searchGame', function () {
+describe('q-lemon :: lemon api methods working as expected', function () {
     let sandbox;
-
+    let game = {
+      gameId: "1234"
+    };
 
     beforeEach(() => {
       sandbox = sinon.createSandbox();
+      sinon.stub(scraper, "getGameIdFromSearchPage").returns(game);
     });
 
     afterEach(() => {
       sandbox.restore();
+      scraper.getGameIdFromSearchPage.restore();
     });
 
-    it('Passed cb should have been called', function (done) {
-      let cb = sinon.stub();
-      sinon.stub(scraper, "getGameIdFromSearchPage").returns({
-        gameId: "1234"
-      });
-      sandbox.stub(axios, 'get').resolves({
-        game: "gamePage"
-      });
-      lemonApi.searchGame("Thrust", cb).then(() => {
-        expect(cb.called).to.equal(true);
-        done();
-      });
-
-      //assert.equal([1, 2 , 3].indexOf(4), -1);
+    it("searchGameNew should call the correct api endpoint", () => {
+      let axiosStub = sandbox.stub(axios, 'get').resolves(game);
+      lemonApi.searchGame("Thrust");
+      expect(axiosStub.calledWith(`https://www.lemon64.com/games/list.php?type=title&name=thrust`)).to.equal(true)
     });
-  });
+
+    it("searchGameNew should call getGameFromGameId from the scraper", () => {
+      sandbox.stub(axios, 'get').resolves(game);
+      lemonApi.searchGame("Thrust");
+      expect(scraper.getGameIdFromSearchPage.calledWith(game, "Thrust"));
+    });
+
+    it("getGameByGameId should call the correct api endpoint", () => {
+      let axiosStub = sandbox.stub(axios, 'get').resolves(game);
+      lemonApi.getGameByGameId(game);
+      expect(axiosStub.calledWith(`https://www.lemon64.com/games/details.php?ID=1234`)).to.equal(true)
+    })
+
+
 });

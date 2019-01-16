@@ -7,19 +7,13 @@ const figlet = require('figlet');
 const args = require('yargs').argv;
 const lemonApi = require('./lib/lemon-api');
 
-
-console.log("Hai World! name=", args.name);
-
-//game respo
-//https://www.lemon64.com/games/details.php?ID=2641
-//search resp
-//https://www.lemon64.com/games/list.php?type=title&name=thrust
-
 let name = args.name;
-lemonApi.searchGame(name).then(function(res) {
-    console.log('lemonApi returned', res);
-});
 
+console.log("Lemon C64 Searching for %s", name);
 
-
+lemonApi.searchGame(name)
+  .then(lemonApi.getGameByGameId)
+  .then(function(res) {
+    console.log("what's here", res)
+  });
 
