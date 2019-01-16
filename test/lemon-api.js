@@ -1,4 +1,3 @@
-const assert = require('assert');
 const lemonApi = require('../lib/lemon-api');
 const chai = require('chai');
 const expect = chai.expect;

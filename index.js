@@ -13,7 +13,6 @@ console.log("Lemon C64 Searching for %s", name);
 
 lemonApi.searchGame(name)
   .then(lemonApi.getGameByGameId)
-  .then(function(res) {
-    console.log("what's here", res)
+  .finally(function(res) {
+    console.log("SearchComplete", res)
   });
-
