@@ -9,6 +9,6 @@ from root of project run
 ## usage
 from root of project run 
 
-`q-lemon --name="Thrust"
+`q-lemon --name="Thrust"`
 
 where Thrust can be any game - search is not case sensitive but must match a single game in the Lemon64 db
