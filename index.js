@@ -11,10 +11,30 @@ let name = args.name;
 
 console.log("Lemon C64 Searching for %s", name);
 
+let gameId;
+let game = {
+  metadata: null,
+  image: null
+};
+
 lemonApi.searchGame(name)
-  .then(lemonApi.getGameByGameId)
+  .then((res) => {
+    gameId = res.gameId;
+    return lemonApi.getGameByGameId(gameId);
+  })
+
   .then(function(res) {
-    console.log("SearchComplete", res)
-  });
+    game.metadata = res;
+  })
+  .then(function() {
+    return lemonApi.getCoverImageByGameId(gameId)
+
+  })
+  .then(function(res) {
+    game.image = res;
+    console.log('command complete', game);
+    return game;
+  })
+;
 
 module.exports = lemonApi;
