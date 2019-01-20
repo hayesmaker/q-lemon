@@ -32,8 +32,8 @@ describe('q-lemon :: lemon api methods working as expected', function () {
 
     it("searchGameNew should call getGameFromGameId from the scraper", () => {
       sandbox.stub(axios, 'get').resolves(game);
-      lemonApi.searchGame("Thrust");
-      expect(scraper.getGameIdFromSearchPage.calledWith(game, "Thrust"));
+      lemonApi.searchGame("thrust");
+      expect(scraper.getGameIdFromSearchPage.calledWith(game, "thrust"));
     });
 
     it("getGameByGameId should call the correct api endpoint", () => {
