@@ -17,18 +17,18 @@ describe("q-lemon :: lemon-scraper methods working as expected", () => {
   });
 
   it("getGameIdFromSearchPage should return correct gameTitle", () => {
-    let game = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
-    expect(game.gameTitle).to.equal("thrust");
+    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
+    expect(games[1].gameTitle).to.equal("Thrust");
   });
 
   it("getGameIdFromSearchPage should return correct gameId", () => {
-    let game = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
-    expect(game.gameId).to.equal("2641");
+    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
+    expect(games[1].gameId).to.equal("2641");
   });
 
-  it("getGameIdFromSearchPage should return correct gameId", () => {
-    let game = scraper.getGameIdFromSearchPage(mockSearch1, "Bounder");
-    expect(game).to.be.null;
+  it("getGameIdFromSearchPage should return 5 results", () => {
+    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
+    expect(games.length).to.equal(5);
   });
 
 
