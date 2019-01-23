@@ -19,7 +19,15 @@ let game = {
 
 lemonApi.searchGame(name)
   .then((res) => {
-    gameId = res.gameId;
+    if (res.length === 1) {
+      gameId = res[0].gameId;
+    } else if (res.length > 1) {
+      console.log("multiple games found: ", res);
+      return null;
+    } else {
+      console.log("no games found!");
+      return null;
+    }
     return lemonApi.getGameByGameId(gameId);
   })
 
