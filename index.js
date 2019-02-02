@@ -8,14 +8,16 @@ const args = require('yargs').argv;
 const lemonApi = require('./lib/lemon-api');
 
 let name = args.name;
+let site = args.site;
 
-console.log("Lemon C64 Searching for %s", name);
+console.log("Lemon C64 Searching for %s in %s", name, site);
 
 let gameId;
 let game = {
   metadata: null,
   image: null
 };
+
 
 lemonApi.searchGame(name)
   .then((res) => {
@@ -25,8 +27,7 @@ lemonApi.searchGame(name)
       console.log("multiple games found: ", res);
       return null;
     } else {
-      console.log("no games found!");
-      return null;
+      throw new Error("no game with " + name + " found");
     }
     return lemonApi.getGameByGameId(gameId);
   })
@@ -42,6 +43,9 @@ lemonApi.searchGame(name)
     game.image = res;
     console.log('command complete', game);
     return game;
+  })
+  .catch(function(err) {
+    console.log("End search", err);
   })
 ;
 

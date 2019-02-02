@@ -1,12 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
 const sinon = require('sinon');
-const scraper = require('../lib/lemon-scraper');
+const scraper = require('../lib/scraper-64');
 const mockSearch1 = require("./__mocks__/mock-search-html");
 const mockThrustPage = require("./__mocks__/mock-thrust-page");
 const mockCoverImagePage = require("./__mocks__/mock-cover-image-page");
 
-describe("q-lemon :: lemon-scraper methods working as expected", () => {
+describe("q-lemon :: scraper-64 methods working as expected", () => {
 
   beforeEach(() => {
     //sinon.stub(console, "log");
@@ -84,7 +84,7 @@ describe("q-lemon :: lemon-scraper methods working as expected", () => {
   })
 });
 
-describe("q-lemon :: lemon-scraper :: given an example cover image page html", () => {
+describe("q-lemon :: scraper-64 :: given an example cover image page html", () => {
 
   it("getCoverImageFromPage can return the image src", () => {
     let image = scraper.getCoverImageFromPage(mockCoverImagePage);

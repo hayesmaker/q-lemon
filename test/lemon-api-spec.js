@@ -3,7 +3,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const sinon = require('sinon');
 const axios = require('axios');
-const scraper = require('../lib/lemon-scraper');
+const scraper = require('../lib/scraper-64');
 
 
 describe('q-lemon :: lemon api methods working as expected', function () {
@@ -24,13 +24,13 @@ describe('q-lemon :: lemon api methods working as expected', function () {
       scraper.getGameInfoFromGamePage.restore();
     });
 
-    it("searchGameNew should call the correct api endpoint", () => {
+    it("searchGame should call the correct api endpoint", () => {
       let axiosStub = sandbox.stub(axios, 'get').resolves(game);
       lemonApi.searchGame("Thrust");
-      expect(axiosStub.calledWith(`https://www.lemon64.com/games/list.php?type=title&name=thrust`)).to.equal(true)
+      expect(axiosStub.calledWith(`https://www.lemon64.com/games/list.php?type=title&name=Thrust`)).to.equal(true)
     });
 
-    it("searchGameNew should call getGameFromGameId from the scraper", () => {
+    it("searchGame should call getGameFromGameId from the scraper", () => {
       sandbox.stub(axios, 'get').resolves(game);
       lemonApi.searchGame("thrust");
       expect(scraper.getGameIdFromSearchPage.calledWith(game, "thrust"));
