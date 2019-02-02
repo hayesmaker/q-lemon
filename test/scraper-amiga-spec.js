@@ -16,9 +16,9 @@ describe("q-lemon :: scraper-amiga methods working as expected", () => {
     //console.log.restore();
   });
 
-  it("getGameIdFromSearchPage should return correct gameTitle", () => {
-    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
-    expect(games[1].gameTitle).to.equal("Thrust");
+  it.only("getGameIdFromSearchPage should return correct gameTitle", () => {
+    let games = scraper.getGameIdFromSearchPage(mockSearch1);
+    expect(games[1].gameTitle).to.equal("R-Type");
   });
 
   it("getGameIdFromSearchPage should return correct gameId", () => {
