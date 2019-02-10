@@ -5,69 +5,90 @@ const scraper = require('../lib/scraper-amiga');
 const mockSearch1 = require("./__mocks__/mock-amiga-search-page");
 const mockRTypePage = require("./__mocks__/mock-amiga-rtype-page");
 const mockCoverImagePage = require("./__mocks__/mock-amiga-cover-image");
+const mockPageWithCover = require("./__mocks__/amiga-game-with-boxart.js");
 
-describe("q-lemon :: scraper-amiga methods working as expected", () => {
+describe("q-lemon :: scraper-amiga ", () => {
+  describe("getGameIdFromSearchPage works as expected", () => {
 
-  beforeEach(() => {
-    //sinon.stub(console, "log");
+    beforeEach(() => {
+      //sinon.stub(console, "log");
+    });
+
+    afterEach(() => {
+      //console.log.restore();
+    });
+
+    it("getGameIdFromSearchPage should return gameTitle : R-Type ", () => {
+      let games = scraper.getGameIdFromSearchPage(mockSearch1);
+      expect(games[4].gameTitle).to.equal("R-Type");
+    });
+
+    it("getGameIdFromSearchPage should return correct gameId - 918", () => {
+      let games = scraper.getGameIdFromSearchPage(mockSearch1);
+      expect(games[4].gameId).to.equal("918");
+    });
+
+    it("getGameIdFromSearchPage should return 6 results", () => {
+      let games = scraper.getGameIdFromSearchPage(mockSearch1);
+      expect(games.length).to.equal(6);
+    });
   });
 
-  afterEach(() => {
-    //console.log.restore();
+  describe("getGameInfoFromGamePage works as expected", () => {
+    it("should return correct game name : Retro Wars - Episode IV 1/4", () => {
+      let game = scraper.getGameInfoFromGamePage(mockPageWithCover);
+      expect(game.name).to.equal("Retro Wars - Episode IV 1/4")
+    });
+
+    it("should return correct game name : R-Type", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.name).to.equal("R-Type")
+    });
+
+    it("getGameInfoFromGamePage should return correct year info", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.year).to.equal("1989")
+    });
+
+    it("getGameInfoFromGamePage should return correct publisher info", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.publisher).to.equal("Electric Dreams")
+    });
+
+    it("getGameInfoFromGamePage should return correct developer", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.developer).to.equal("Factor 5, Rainbow Arts")
+    });
+
+    it("getGameInfoFromGamePage should return correct musician info", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.musician.includes('Chris')).to.equal(true)
+    });
+
+    it("getGameInfoFromGamePage should return correct genre info", () => {
+      let game = scraper.getGameInfoFromGamePage(mockRTypePage);
+      expect(game.genre).to.equal("Shoot'em Up - H-Scrolling")
+    });
   });
 
-  it.only("getGameIdFromSearchPage should return correct gameTitle", () => {
-    let games = scraper.getGameIdFromSearchPage(mockSearch1);
-    expect(games[1].gameTitle).to.equal("R-Type");
-  });
+  describe("getCoverImageFromPage worsks as expected", () => {
 
-  it("getGameIdFromSearchPage should return correct gameId", () => {
-    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
-    expect(games[1].gameId).to.equal("2641");
-  });
+    it("return the cannon fodder image src", () => {
+      let image = scraper.getCoverImageFromPage(mockCoverImagePage);
+      expect(image.src).to.equal(
+          "http://www.lemonamiga.com/games/boxes/full/cannon_fodder_01.jpg"
+      )
+    });
 
-  it("getGameIdFromSearchPage should return 5 results", () => {
-    let games = scraper.getGameIdFromSearchPage(mockSearch1, "Thrust");
-    expect(games.length).to.equal(5);
-  });
+    it("returns the image width", () => {
+      let image = scraper.getCoverImageFromPage(mockCoverImagePage);
+      expect(image.width).to.equal('713')
+    });
 
-
-  /*
-  getGameInfoFromGamePage
-   */
-
-  it("getGameInfoFromGamePage should return correct game name info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.name).to.equal("Thrust")
-  })
-
-  it("getGameInfoFromGamePage should return correct year info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.year).to.equal("1986")
-  })
-
-  it("getGameInfoFromGamePage should return correct publisher info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.publisher).to.equal("Firebird")
-  })
-
-  it("getGameInfoFromGamePage should return correct developer", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.developer).to.equal("Jeremy Smith")
-  })
-
-  it("getGameInfoFromGamePage should return correct musician info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.musician).to.equal("Rob Hubbard")
-  })
-
-  it("getGameInfoFromGamePage should return correct genre info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.genre).to.equal("Arcade")
-  })
-
-  it("getGameInfoFromGamePage should return correct magazine review info", () => {
-    let game = scraper.getGameInfoFromGamePage(mockRTypePage);
-    expect(game.magazine).to.equal("Zzap!64 - 94% (issue 13, page 16)")
+    it("returns the image height", () => {
+      let image = scraper.getCoverImageFromPage(mockCoverImagePage);
+      expect(image.height).to.equal('923')
+    });
   })
 });
+
