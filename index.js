@@ -25,7 +25,7 @@ lemonApi.searchGame(name)
       gameId = res[0].gameId;
     } else if (res.length > 1) {
       console.log("multiple games found: ", res);
-      return null;
+      throw "Multiple games found - cannot get game cover"
     } else {
       throw new Error("no game with " + name + " found");
     }
