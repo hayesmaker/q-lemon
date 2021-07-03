@@ -14,26 +14,28 @@ describe('q-lemon :: lemon api methods working as expected', function () {
 
     beforeEach(() => {
       sandbox = sinon.createSandbox();
-      sinon.stub(scraper, "getGameIdFromSearchPage").returns(game);
+      sinon.stub(scraper, "getGames").returns([game]);
       sinon.stub(scraper, "getGameInfoFromGamePage").returns(game);
     });
 
     afterEach(() => {
       sandbox.restore();
-      scraper.getGameIdFromSearchPage.restore();
+      scraper.getGames.restore();
       scraper.getGameInfoFromGamePage.restore();
     });
 
     it("searchGame should call the correct api endpoint", () => {
       let axiosStub = sandbox.stub(axios, 'get').resolves(game);
       lemonApi.searchGame("Thrust");
-      expect(axiosStub.calledWith(`https://www.lemon64.com/games/list.php?type=title&name=Thrust`)).to.equal(true)
+      expect(axiosStub
+        .calledWith(`https://www.lemon64.com/games/list.php?type=title&name=thrust`))
+        .to.equal(true);
     });
 
     it("searchGame should call getGameFromGameId from the scraper", () => {
       sandbox.stub(axios, 'get').resolves(game);
       lemonApi.searchGame("thrust");
-      expect(scraper.getGameIdFromSearchPage.calledWith(game, "thrust"));
+      expect(scraper.getGames.calledWith(game, "thrust"));
     });
 
     it("getGameByGameId should call the correct api endpoint", () => {

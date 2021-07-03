@@ -14,6 +14,7 @@ console.log("Lemon C64 Searching for %s in %s", name, site);
 
 let gameId;
 let game = {
+  foundGame: null,
   metadata: null,
   image: null
 };
@@ -21,31 +22,53 @@ let game = {
 
 lemonApi.searchGame(name)
   .then((res) => {
-    if (res.length === 1) {
-      gameId = res[0].gameId;
-    } else if (res.length > 1) {
-      console.log("multiple games found: ", res);
-      return null;
+    console.log('lemon search game', res);
+    if (res.length !== 0) {
+      return res;
     } else {
       throw new Error("no game with " + name + " found");
     }
-    return lemonApi.getGameByGameId(gameId);
-  })
-
-  .then(function(res) {
-    game.metadata = res;
-  })
-  .then(function() {
-    return lemonApi.getCoverImageByGameId(gameId)
-
   })
   .then(function(res) {
-    game.image = res;
-    console.log('command complete', game);
-    return game;
+    if (res && res.length) {
+      let gameResult = res.find((data) => {
+        let title = data.gameTitle.replace(/[^\w\s]/gi, '');
+        return title.toLowerCase() === name.toLowerCase();
+      })
+      if (gameResult) {
+        return gameResult;
+      }
+    }
+  })
+  .then(function(foundGame) {
+    console.log("Found Game: ", foundGame);
+    if (foundGame) {
+      game.foundGame = foundGame;
+      return lemonApi.getGameByGameId(foundGame.gameId);
+      //return lemonApi.getCoverImageByGameId(foundGame.gameId);
+    }
+  })
+  .then(function(res) {
+    if (res) {
+      game.metadata = res;
+      console.log('command complete', game.foundGame.gameId);
+      return true;
+    }
+  })
+  .then(function(res) {
+    if (res) {
+      return lemonApi.getCoverImageByGameId(game.foundGame.gameId);
+    }
+  })
+  .then(function(res) {
+    if (res) {
+      game.image = res;
+    }
   })
   .catch(function(err) {
     console.log("End search", err);
+  }).finally(() => {
+    console.log('Search Complete', game);
   })
 ;
 
