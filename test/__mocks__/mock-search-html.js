@@ -1,4 +1,5 @@
-module.exports = {
+
+export default {
   data: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -95,4 +96,4 @@ var preload_list = ['mega_thrusterball:4','thrust:4','thrust_ii:7','thrusta:3','
 </script>
 </body></html>
 `
-};
+}

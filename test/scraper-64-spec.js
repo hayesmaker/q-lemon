@@ -1,10 +1,16 @@
-const fs = require('fs');
-const chai = require('chai');
+import scraper from "../lib/scraper-64.js";
+import chai from "chai";
+import sinonChai from 'sinon-chai';
+import * as path from 'path'
+import * as fs from 'fs';
 const expect = chai.expect;
-const sinon = require('sinon');
-const scraper = require('../lib/scraper-64');
-const mockSearch1 = require("./__mocks__/mock-search-html");
-const mockThrustPage = require("./__mocks__/mock-thrust-page");
+chai.use(sinonChai);
+
+const __dirname = fs.realpathSync('');
+
+
+// import mockSearch from './__mocks__/mock-search-html';
+// const mockThrustPage = require("./__mocks__/mock-thrust-page");
 
 describe("q-lemon :: scraper-64", () => {
   describe("methods working as expected", () => {
@@ -18,7 +24,7 @@ describe("q-lemon :: scraper-64", () => {
     });
 
     it('getGames should give single id back if only 1 game found', () => {
-      let mockPath = __dirname + '/__mocks__/search-page-result1.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/search-page-result1.html'); // test on linux.. path maybe different
       const data = fs.readFileSync(mockPath, 'utf8');
       let games = scraper.getGames(data, "Round the bend");
       console.log('games', games);
@@ -26,14 +32,14 @@ describe("q-lemon :: scraper-64", () => {
     });
 
     it('getGames should give single id back if only 1 game found', () => {
-      let mockPath = __dirname + '/__mocks__/search-page-result1.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/search-page-result1.html');
       const data = fs.readFileSync(mockPath, 'utf8');
       let games = scraper.getGames(data, "Round the bend");
       expect(games[0].gameTitle).to.equal('Round the Bend!');
     });
 
     it("getGames should find Thrust", () => {
-      let mockPath = __dirname + '/__mocks__/search-page-result5.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/search-page-result5.html');
       const data = fs.readFileSync(mockPath, 'utf8');
       let games = scraper.getGames(data, "Thrust");
       expect(games[1].gameTitle).to.equal("Thrust");
@@ -41,14 +47,14 @@ describe("q-lemon :: scraper-64", () => {
 
 
     it("getGames should return 5 results", () => {
-      let mockPath = __dirname + '/__mocks__/search-page-result5.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/search-page-result5.html');
       const data = fs.readFileSync(mockPath, 'utf8');
       let games = scraper.getGames(data, "Thrust");
       expect(games.length).to.equal(5);
     });
 
     it('getGames should return 0 results', () => {
-      let mockPath = __dirname + '/__mocks__/search-page-none.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/search-page-none.html');;
       const data = fs.readFileSync(mockPath, 'utf8');
       let games = scraper.getGames(data, "Thrust");
       expect(games.length).to.equal(0);
@@ -106,7 +112,7 @@ describe("q-lemon :: scraper-64", () => {
 
     it("getCoverImageFromPage can return the Thrust cover image src", () => {
 
-      let mockPath = __dirname + '/__mocks__/cover-image-c64.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/cover-image-c64.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let image = scraper.getCoverImageFromPage(data);
@@ -114,7 +120,7 @@ describe("q-lemon :: scraper-64", () => {
     })
 
     it("getCoverImageFromPage returns the image width", () => {
-      let mockPath = __dirname + '/__mocks__/cover-image-c64.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/cover-image-c64.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let image = scraper.getCoverImageFromPage(data);
@@ -122,7 +128,7 @@ describe("q-lemon :: scraper-64", () => {
     })
 
     it("getCoverImageFromPage returns the image height", () => {
-      let mockPath = __dirname + '/__mocks__/cover-image-c64.html';
+      let mockPath = path.join(__dirname, 'test/__mocks__/cover-image-c64.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let image = scraper.getCoverImageFromPage(data);

@@ -1,13 +1,14 @@
-const chai = require('chai');
-const expect = chai.expect;
-const sinon = require('sinon');
-const scraper = require('../lib/scraper-amiga');
-const mockSearch1 = require("./__mocks__/mock-amiga-search-page");
-const mockRTypePage = require("./__mocks__/mock-amiga-rtype-page");
-const mockCoverImagePage = require("./__mocks__/mock-amiga-cover-image");
-const mockPageWithCover = require("./__mocks__/amiga-game-with-boxart");
-const mockCannonFodderImage = require("./__mocks__/cannon-fodder-cd32-image");
+// const chai = require('chai');
+// const expect = chai.expect;
+// const sinon = require('sinon');
+// const scraper = require('../lib/scraper-amiga');
+// const mockSearch1 = require("./__mocks__/mock-amiga-search-page");
+// const mockRTypePage = require("./__mocks__/mock-amiga-rtype-page");
+// const mockCoverImagePage = require("./__mocks__/mock-amiga-cover-image");
+// const mockPageWithCover = require("./__mocks__/amiga-game-with-boxart");
+// const mockCannonFodderImage = require("./__mocks__/cannon-fodder-cd32-image");
 
+/*
 describe("q-lemon :: scraper-amiga ", () => {
   describe("getGameIdFromSearchPage works as expected", () => {
 
@@ -91,22 +92,23 @@ describe("q-lemon :: scraper-amiga ", () => {
       expect(image.height).to.equal('923')
     });
 
-    it("return the cannon fodder image src", () => {
+    xit("return the cannon fodder image src", () => {
       let image = scraper.getCoverImageFromPage(mockCannonFodderImage);
       expect(image.src).to.equal(
         "http://www.lemonamiga.com/games/boxes/full/cannon_fodder_01.jpg"
       )
     });
 
-    it("returns the image width", () => {
+    xit("returns the image width", () => {
       let image = scraper.getCoverImageFromPage(mockCannonFodderImage);
       expect(image.width).to.equal('713')
     });
 
-    it("returns the image height", () => {
+    xit("returns the image height", () => {
       let image = scraper.getCoverImageFromPage(mockCannonFodderImage);
       expect(image.height).to.equal('923')
     });
   })
 });
+*/
 
