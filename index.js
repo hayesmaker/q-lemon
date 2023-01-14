@@ -7,82 +7,98 @@
 import lemonApi from './lib/lemon-api.js';
 
 import _yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
+import {hideBin} from 'yargs/helpers';
+
+import chalk from 'chalk';
+import boxen from 'boxen';
+
 const yargs = _yargs(hideBin(process.argv));
 
 (async () => {
-  const argv = await yargs
-    .option('name', { type: 'string', require: true })
-    .option('site', { type: 'string', require: false })
-    .alias('n', 'name')
-    .alias('s', 'site')
-    .argv;
+    const argv = await yargs
+        .option('title', {
+            alias: 't',
+            type: 'string',
+            demandOption: true
+        })
+        .option('site', {type: 'string', alias: 's', demandOption: false})
+        .argv;
 
-  let name = argv.name;
-  let site = argv.site;
+    let title = argv.title;
+    let site = argv.site;
 
-  console.log('name:', name);
-  console.log('site:', site);
+    // console.log('title:', title);
+    // console.log('site:', site);
+    // console.log("Lemon C64 Searching for %s in %s", title, site);
 
-  console.log("Lemon C64 Searching for %s in %s", name, site);
+    //let gameId;
+    let game = {
+        foundGame: null,
+        metadata: null,
+        image: null,
+        covers: [],
+    };
 
-  //let gameId;
-  let game = {
-    foundGame: null,
-    metadata: null,
-    image: null
-  };
+    const greeting = chalk.white.bold(`Q-Lemon - Query Lemon64\n\nSearching for: ${title}`);
 
-  lemonApi.searchGame(name)
-      .then((res) => {
-        console.log('lemon search game', res);
-        if (res.length !== 0) {
-          return res;
-        } else {
-          throw new Error("no game with " + name + " found");
-        }
-      })
-      .then(function(res) {
-        if (res && res.length) {
-          let gameResult = res.find((data) => {
-            let title = data.gameTitle.replace(/[^\w\s]/gi, '');
-            return title.toLowerCase() === name.toLowerCase();
-          })
-          if (gameResult) {
-            return gameResult;
-          }
-        }
-      })
-      .then(function(foundGame) {
-        console.log("Found Game: ", foundGame);
-        if (foundGame) {
-          game.foundGame = foundGame;
-          return lemonApi.getGameByGameId(foundGame.gameId);
-          //return lemonApi.getCoverImageByGameId(foundGame.gameId);
-        }
-      })
-      .then(function(res) {
-        if (res) {
-          game.metadata = res;
-          console.log('command complete', game.foundGame.gameId);
-          return true;
-        }
-      })
-      .then(function(res) {
-        if (res) {
-          return lemonApi.getCoverImageByGameId(game.foundGame.gameId);
-        }
-      })
-      .then(function(res) {
-        if (res) {
-          game.image = res;
-        }
-      })
-      .catch(function(err) {
-        console.log("End search", err);
-      }).finally(() => {
-    console.log('Search Complete', game);
-  })
+    // const greeting = `Hello, ${options.name}!`;
+
+    const boxenOptions = {
+        padding: 1,
+        margin: 1,
+        borderStyle: "double",
+        borderColor: "yellow",
+        backgroundColor: "#5533ff",
+        dimBorder: true,
+    };
+    const msgBox = boxen(greeting, boxenOptions);
+    console.log(msgBox);
+
+    lemonApi.searchGame(title)
+        .then((res) => {
+            if (res && res.length !== undefined) {
+                console.log('search returned:', res);
+                return res;
+            }
+            throw new Error("no game with title: " + title + " found");
+        })
+        .then(function (res) {
+            if (res && res.length !== undefined) {
+                let gameResult = res.find((data) => {
+                    let resTitle = data.gameTitle.replace(/[^\w\s]/gi, '');
+                    return resTitle.toLowerCase() === title.toLowerCase();
+                })
+                if (gameResult) {
+                    return gameResult;
+                }
+            }
+        })
+        .then(function (foundGame) {
+            if (foundGame) {
+                game.foundGame = foundGame;
+                return lemonApi.getGameByGameId(foundGame.gameId);
+                //return lemonApi.getCoverImageByGameId(foundGame.gameId);
+            }
+        })
+        .then(function (res) {
+            if (res) {
+                game.metadata = res;
+                console.log('command complete', game.foundGame.gameId);
+                return game;
+            }
+        })
+        .then(function (res) {
+            if (res && res.metadata && res.metadata.scans && res.metadata.scans.length > 0) {
+                lemonApi.getCoverImageByGameId(res, site);
+            }
+            //return lemonApi.getCoverImageByGameId(game.foundGame.gameId);
+        })
+        .catch(function (err) {
+            // console.log("End search", err);
+        })
+        .finally(() => {
+            console.log('Search Complete', game);
+        })
 
 })();
 

@@ -1,165 +1,336 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
 
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>Commodore 64 Games: thrust - C64 Reviews, Downloads & SID Tunes</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <meta name="content-language" content="en">
-  <link rel="icon" href="/i/favicon.php" type="image/x-icon">
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <script type="text/javascript">
-    if (top.location == self.location) top.location.href = 'https://www.lemon64.com/?mainurl=' + escape(document.location.href);
-
-    var p = ['az.png', '0.gif', 'spr/blue_20_spr.png', 'spr/16_spr.png'], i = p.length, u;
-    while (i) { u = p[--i]; document.createElement("IMG").src = '/gfx/' + u };
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Commodore 64 Games - Lemon64 Game Database</title>
+  <meta name="description" content="Commodore 64 games database with information about every C64 game ever released!">
+  <meta name="keywords" content="commodore 64, games">
+  <link rel="preload" href="/assets/fonts/roboto-v30-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/assets/fonts/roboto-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/core.css">
+  <link rel="stylesheet" href="/assets/external/fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/assets/external/fontawesome/css/solid.min.css">
+  <link rel="stylesheet" href="/assets/external/cookieconsent/cookieconsent.css">
+  <link rel="stylesheet" href="/assets/css/specific_c64.css">
+  <link rel="stylesheet" href="/assets/themes/lemon64/style.css" id="theme-css">
+  <link rel="search" href="/assets/external/opensearch_c64.xml" type="application/opensearchdescription+xml" title="Lemon64">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon.png?v=NmaARynnXA">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png?v=NmaARynnXA">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png?v=NmaARynnXA">
+  <link rel="manifest" href="/assets/images/favicons/site.webmanifest?v=NmaARynnXA">
+  <link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg?v=NmaARynnXA" color="#2b5797">
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico?v=NmaARynnXA">
+  <meta name="apple-mobile-web-app-title" content="Lemon64">
+  <meta name="application-name" content="Lemon64">
+  <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml?v=NmaARynnXA">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <script>
+    var cc_website_name = "Lemon64";
+    var cc_website_domain = "www.lemon64.com";
+    var cc_group_id = "96";
   </script>
+  <script defer src="/assets/external/cookieconsent/cookieconsent.js"></script>
+  <script defer src="/assets/external/cookieconsent/cookieconsent-init.js"></script>
 
-  <link href="/i/css.php?id=2018102401" rel="stylesheet" type="text/css">
+  <script async data-cookiecategory="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-628ZE50L8L"></script>
+  <script data-cookiecategory="analytics">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-628ZE50L8L');
+  </script>
 </head>
+<body class="games-section">
 
-<body>
-  <div id="main">
-    <map name="az1">
-      <area shape="rect" alt="0" coords="0,0,18,17" href="?title=0">
-      <area shape="rect" alt="A" coords="19,0,38,17" href="?title=A">
-      <area shape="rect" alt="B" coords="39,0,57,17" href="?title=B">
-      <area shape="rect" alt="C" coords="58,0,76,17" href="?title=C">
-      <area shape="rect" alt="D" coords="77,0,95,17" href="?title=D">
-      <area shape="rect" alt="E" coords="96,0,114,17" href="?title=E">
-      <area shape="rect" alt="F" coords="115,0,131,17" href="?title=F">
-      <area shape="rect" alt="G" coords="132,0,152,17" href="?title=G">
-      <area shape="rect" alt="H" coords="153,0,171,17" href="?title=H">
-    </map>
-    <map name="az2">
-      <area shape="rect" alt="I" coords="0,0,15,17" href="?title=I">
-      <area shape="rect" alt="J" coords="16,0,33,17" href="?title=J">
-      <area shape="rect" alt="K" coords="34,0,53,17" href="?title=K">
-      <area shape="rect" alt="L" coords="54,0,72,17" href="?title=L">
-      <area shape="rect" alt="M" coords="73,0,93,17" href="?title=M">
-      <area shape="rect" alt="N" coords="94,0,113,17" href="?title=N">
-      <area shape="rect" alt="O" coords="114,0,132,17" href="?title=O">
-      <area shape="rect" alt="P" coords="133,0,151,17" href="?title=P">
-      <area shape="rect" alt="Q" coords="152,0,170,17" href="?title=Q">
-    </map>
-    <map name="az3">
-      <area shape="rect" alt="R" coords="0,0,19,17" href="?title=R">
-      <area shape="rect" alt="S" coords="20,0,38,17" href="?title=S">
-      <area shape="rect" alt="T" coords="39,0,57,17" href="?title=T">
-      <area shape="rect" alt="U" coords="58,0,76,17" href="?title=U">
-      <area shape="rect" alt="V" coords="77,0,95,17" href="?title=V">
-      <area shape="rect" alt="W" coords="96,0,114,17" href="?title=W">
-      <area shape="rect" alt="X" coords="115,0,132,17" href="?title=X">
-      <area shape="rect" alt="Y" coords="133,0,152,17" href="?title=Y">
-      <area shape="rect" alt="Z" coords="153,0,172,17" href="?title=Z">
-    </map>
+<nav class="top-navigation " style="background-image: url('/assets/themes/lemon64/background.png');">
+  <div class="navigation-wrapper">
+    <table class="navigation-container">
+      <tbody>
+      <tr class="header-lemon64">
+        <td class="logo-lemon64"><a href="/"><img src="/assets/themes/lemon64/logos/logo.png" srcset="/assets/themes/lemon64/logos/logo-2x.png 2x" alt="Home"></a></td>
+        <td class="stripes-left"><img src="/assets/themes/lemon64/stripes-left.png" srcset="/assets/themes/lemon64/stripes-left-2x.png 2x" alt=""></td>
+        <td class="stripes-center">
+          <img src="/assets/themes/lemon64/mushroom.png" alt="Mushroom" class="hide-mobile header-mushroom pixelated">
+        </td>
+        <td class="stripes-right"><img src="/assets/themes/lemon64/stripes-right.png" srcset="/assets/themes/lemon64/stripes-right-2x.png 2x" alt=""></td>
+        <td class="logo-right"><img src="/assets/themes/lemon64/c64-flash.gif" srcset="/assets/themes/lemon64/c64-flash-2x.png 2x" alt="C64"></td>
+        <td>
+          <div id="dropdownMenuButton1" class="dropdown dropleft ">
+            <button class="user-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <a class="dropdown-item" href="/forum/ucp.php"><i class="fa-solid fa-sliders-h"></i> User Control Panel</a>
+              <a class="dropdown-item" href="/forum/memberlist.php?mode=viewprofile&u=31887"><i class="fa-solid fa-user"></i> Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/forum/ucp.php?mode=logout&sid=0400b8d3f982d6a5a63bab35e7744a76"><i class="fa-solid fa-power-off"></i> Logout</a>
+            </div>
+          </div>
+        </td>
+        <td>
+          <nav class="hamburger">
+            <ul class="burger-menu">
+              <li class="burger-item">
+                <a href="/" class="burger-link"><img src="/assets/themes/lemon64/buttons/news.png" srcset="/assets/themes/lemon64/buttons/2x/news.png 2x" alt="News" width="29" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/games/" class="burger-link"><img src="/assets/themes/lemon64/buttons/games.png" srcset="/assets/themes/lemon64/buttons/2x/games.png 2x" alt="Games" width="37" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/reviews/" class="burger-link"><img src="/assets/themes/lemon64/buttons/reviews.png" srcset="/assets/themes/lemon64/buttons/2x/reviews.png 2x" alt="Reviews" width="52" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/forum/" class="burger-link"><img src="/assets/themes/lemon64/buttons/forum.png" srcset="/assets/themes/lemon64/buttons/2x/forum.png 2x" alt="Forum" width="37" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/apps/" class="burger-link"><img src="/assets/themes/lemon64/buttons/apps.png" srcset="/assets/themes/lemon64/buttons/2x/apps.png 2x" alt="Apps" width="27" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/music/" class="burger-link"><img src="/assets/themes/lemon64/buttons/music.png" srcset="/assets/themes/lemon64/buttons/2x/music.png 2x" alt="Music" width="34" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/museum/" class="burger-link"><img src="/assets/themes/lemon64/buttons/museum.png" srcset="/assets/themes/lemon64/buttons/2x/museum.png 2x" alt="Museum" width="45" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/help/" class="burger-link"><img src="/assets/themes/lemon64/buttons/help.png" srcset="/assets/themes/lemon64/buttons/2x/help.png 2x" alt="Help" width="28" height="8"></a>
+              </li>
+              <li class="burger-item">
+                <a href="/links/" class="burger-link"><img src="/assets/themes/lemon64/buttons/links.png" srcset="/assets/themes/lemon64/buttons/2x/links.png 2x" alt="Links" width="32" height="8"></a>
+              </li>
+            </ul>
+            <div class="burger-icon">
+              <span class="burger-bar"></span>
+              <span class="burger-bar"></span>
+              <span class="burger-bar"></span>
+            </div>
+          </nav>
+        </td>
+      </tr>
+      <tr class="menu-lemon64 hide-mobile">
+        <td colspan="7" class="menu-links">
+          <div><a href="/"><img src="/assets/themes/lemon64/buttons/news.png" srcset="/assets/themes/lemon64/buttons/2x/news.png 2x" alt="News" width="29" height="8"></a></div>
+          <div class="menu-active"><a href="/games/"><img src="/assets/themes/lemon64/buttons/games.png" srcset="/assets/themes/lemon64/buttons/2x/games.png 2x" alt="Games" width="37" height="8"></a></div>
+          <div><a href="/reviews/"><img src="/assets/themes/lemon64/buttons/reviews.png" srcset="/assets/themes/lemon64/buttons/2x/reviews.png 2x" alt="Reviews" width="52" height="8"></a></div>
+          <div><a href="/forum/"><img src="/assets/themes/lemon64/buttons/forum.png" srcset="/assets/themes/lemon64/buttons/2x/forum.png 2x" alt="Forum" width="37" height="8"></a></div>
+          <div><a href="/apps/"><img src="/assets/themes/lemon64/buttons/apps.png" srcset="/assets/themes/lemon64/buttons/2x/apps.png 2x" alt="Apps" width="27" height="8"></a></div>
+          <div><a href="/music/"><img src="/assets/themes/lemon64/buttons/music.png" srcset="/assets/themes/lemon64/buttons/2x/music.png 2x" alt="Music" width="34" height="8"></a></div>
+          <div><a href="/museum/"><img src="/assets/themes/lemon64/buttons/museum.png" srcset="/assets/themes/lemon64/buttons/2x/museum.png 2x" alt="Museum" width="45" height="8"></a></div>
+          <div><a href="/help/"><img src="/assets/themes/lemon64/buttons/help.png" srcset="/assets/themes/lemon64/buttons/2x/help.png 2x" alt="Help" width="28" height="8"></a></div>
+          <div><a href="/links/"><img src="/assets/themes/lemon64/buttons/links.png" srcset="/assets/themes/lemon64/buttons/2x/links.png 2x" alt="Links" width="32" height="8"></a></div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="header-user-button header-user-button-login ">
+      <div class="dropdown navigation-user dropleft">
+        <button type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <strong><i class="fa-solid fa-user"></i> hayesmaker64</strong>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+          <a class="dropdown-item" href="/forum/ucp.php"><i class="fa-solid fa-sliders-h"></i> User Control Panel</a>
+          <a class="dropdown-item" href="/forum/memberlist.php?mode=viewprofile&u=31887"><i class="fa-solid fa-user"></i> Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/forum/ucp.php?mode=logout&sid=0400b8d3f982d6a5a63bab35e7744a76"><i class="fa-solid fa-power-off"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+    <div class="header-user-button ">
+      <div class="dropdown theme-selector dropleft">
+        <button type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa-solid fa-mountains"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <h6 class="dropdown-header">Theme options</h6>
+          <a class="dropdown-item" href="#" onclick="toggleStickyNavigation('1')"><span class='text-danger'><i class='fa-solid fa-toggle-off'></i></span> Sticky header</a>
+          <a class="dropdown-item hide-mobile" style="display: list-item;" href="#" onclick="toggleBubbles('1')"><span class='text-danger'><i class='fa-solid fa-toggle-off'></i></span> Bubbles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container content-above">
+  <div class="row">
 
-    <h1>Games</h1>
-    <div class="hr">
-      <hr>
-    </div>
-    <div class="nav"><img src="/gfx/0.gif" usemap="#az1" class="az_1" alt=""><img src="/gfx/0.gif" usemap="#az2"
-        class="az_2" alt=""><img src="/gfx/0.gif" usemap="#az3" class="az_3" alt=""><a href="/games/"
-        class="s2 s2_gameshome" style="float:right">games home</a>
-      <div style="clear:both;background-color:#386C9D"></div>
-    </div>
-    <div class="hr">
-      <hr>
-    </div>
+    <div class="col-md-4 themed-grid-col order-md-2">
+      <div class="box games-search-box">
+        <div class="box-header shadow-text box-header-decoration-2">
+          <h2><i class="fa-solid fa-search"></i> Search Games</h2>
+        </div>
+        <div class="box-content">
+          <div class="box-text">
+            <form action="/games/list.php" method="get" id="game_search">
+              <div class="quick-search">
+                <table>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <script>
+                        if (window.location.hash || window.navigator.maxTouchPoints || 'ontouchstart' in document) {
+                          var search_focus = '';
+                        } else {
+                          var search_focus = 'autofocus';
+                        }
+                        document.write('<input type="search" autocomplete="off" value="thrust" name="list_title" minlength="2" required placeholder="Search 4522 games..." ' + search_focus + '>');
+                      </script>
+                      <div class="live-search-result"></div>
+                    </td>
+                    <td><button class="button button-large shadow-text" type="submit" form="game_search"><span>Go!</span></button></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+            <p><a href="/games/advanced_search.php" rel="nofollow" class="advanced-search-link">Go to Advanced Search <i class="fa-solid fa-arrow-alt-right" aria-hidden="true"></i></a></p>
+          </div>
+        </div>
+      </div> </div>
 
-    <div class="search"><strong>Game Title</strong> containing <b>'thrust'</b>. Found <b>5</b> games.<form action=""
-        method="get" onSubmit="return checkForm(this)" name="search">
-        <div>
-          <select name="type" class="search">
-            <option value="title" selected>Game Title</option>
-            <option value="publisher">Publisher</option>
-            <option value="year">Year</option>
-            <option value="coder">Coder</option>
-            <option value="graphics">Graphics</option>
-            <option value="developer">Developer</option>
-            <option value="musician">Musician</option>
-            <option value="genre">Genre</option>
+
+    <div class="col-md-8 themed-grid-col order-md-1">
+      <div class="hide-mobile">
+        <div class="box banner-box banner-1-box first-box">
+          <div class="box-header shadow-text box-header-decoration-2">
+            <h2><i class="fa-solid fa-lightbulb-exclamation"></i> C64 Forever - Create & Play</h2>
+          </div>
+          <div class="box-content clearfix">
+            <a href="/links/redirect.php?id=1531"><img src="/assets/images/cloanto/box.png" alt="Commodore 64 Forever" class="float-right default-padding cloanto-image"></a>
+            <div class="box-text">
+              <p><a href="/links/redirect.php?id=1531" target="_blank" rel="noopener">Get C64 Forever <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a> for a revolutionary C64 preservation & emulation package! Over 200 pre-installed games and demoscene productions. <span class="hide-tablet">A true one-click emulation experience!</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hide-desktop" style="margin-top: 8px;">
+        <div class="box">
+          <div class="box-header shadow-text box-header-decoration-2">
+            <div class="box-empty-header"></div>
+          </div>
+          <div class="box-content clearfix" style="min-height: 10px;">
+            <div class="box-text default-padding">
+              <p style="margin-bottom: 0;"><a href="/links/redirect.php?id=1531" target="_blank" rel="noopener">Get C64 Forever <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a> for revolutionary C64 emulation</p>
+            </div>
+          </div>
+        </div>
+      </div> </div>
+
+  </div>
+</div>
+<div class="container wide-container">
+  <div class="row">
+    <div class="box">
+      <div class="box-header shadow-text box-header-decoration-3">
+        <h2><i class="fa-solid fa-joystick"></i> Games</h2>
+      </div>
+      <div class="box-content">
+        <div class="letters">
+          <ul>
+            <li><a href="list.php?list_letter=0">0</a></li>
+            <li><a href="list.php?list_letter=A">A</a></li><li><a href="list.php?list_letter=B">B</a></li><li><a href="list.php?list_letter=C">C</a></li><li><a href="list.php?list_letter=D">D</a></li><li><a href="list.php?list_letter=E">E</a></li><li><a href="list.php?list_letter=F">F</a></li><li><a href="list.php?list_letter=G">G</a></li><li><a href="list.php?list_letter=H">H</a></li><li><a href="list.php?list_letter=I">I</a></li><li><a href="list.php?list_letter=J">J</a></li><li><a href="list.php?list_letter=K">K</a></li><li><a href="list.php?list_letter=L">L</a></li><li><a href="list.php?list_letter=M">M</a></li><li><a href="list.php?list_letter=N">N</a></li><li><a href="list.php?list_letter=O">O</a></li><li><a href="list.php?list_letter=P">P</a></li><li><a href="list.php?list_letter=Q">Q</a></li><li><a href="list.php?list_letter=R">R</a></li><li><a href="list.php?list_letter=S">S</a></li><li><a href="list.php?list_letter=T">T</a></li><li><a href="list.php?list_letter=U">U</a></li><li><a href="list.php?list_letter=V">V</a></li><li><a href="list.php?list_letter=W">W</a></li><li><a href="list.php?list_letter=X">X</a></li><li><a href="list.php?list_letter=Y">Y</a></li><li><a href="list.php?list_letter=Z">Z</a></li> <li class="float-right hide-mobile"><a href="/games/">Games Home <i class="fa-solid fa-caret-right"></i></a></li>
+          </ul>
+        </div>
+        <div class="display-options hide-mobile">
+          Display:
+          <select class="basic-single" data-placeholder="" name="games_display" id="games_display" onchange="gamesDisplay(this.value)">
+            <option value="game">Game screens</option>
+            <option value="title">Title screens</option>
+            <option value="scan">Box/ad scans</option>
           </select>
-          <input name="name" class="searchname" value="thrust">
-          <input type="submit" value="Submit" class="s1 s1_search searchsubmit"><br>
         </div>
-      </form>
-    </div>
-    <ul class="games">
-      <li>
-        <div class="ginfo">
-          <h2><a href="details.php?ID=1640">Mega Thrusterball</a></h2><a href="?year=1994" rel="nofollow">1994</a> <a
-            href="?publisher=Loadstar">Loadstar</a><br><span class="genre"><a href="?genre=Shoot%27em+Up"
-              rel="nofollow">Shoot'em Up</a>, <a href="?genre=Shoot%27em+Up%2C+Miscellaneous"
-              rel="nofollow">Miscellaneous</a></span><br><a href="/music/download.php?sid=16645"
-            class="s2 s2_music">music</a>
+        <div class="box-text search-filters">
+          <table>
+            <tbody>
+            <tr><td><a href="/games/list.php?" title="Remove Filter"><i class="fa-solid fa-minus-circle"></i></a> Game Title contains</td><td>: <strong>thrust</strong></td></tr> </tbody>
+          </table>
+          <div class="search-result">
+            <p>
+              Found <strong>5</strong> games.<br><a href="/games/advanced_search.php?list_title=thrust" rel="nofollow">Refine (Advanced Search) <i class="fa-solid fa-arrow-alt-right"></i></a> </p>
+          </div>
         </div>
-        <div class="gpic"><a href="details.php?ID=1640"><img src="/gfx/0.gif#thumbs/mega_thrusterball.png"
-              alt="Mega Thrusterball" class="lazy-load"></a></div>
-      </li>
-      <li>
-        <div class="ginfo">
-          <h2><a href="details.php?ID=2641">Thrust</a></h2><a href="?year=1986" rel="nofollow">1986</a> <a
-            href="?publisher=Firebird">Firebird</a><br><span class="genre"><a href="?genre=Arcade"
-              rel="nofollow">Arcade</a>, <a href="?genre=Arcade%2C+Miscellaneous"
-              rel="nofollow">Miscellaneous</a></span><br><a href="/reviews/view.php?id=112" class="s2 s2_review"
-            title="9">review</a> <a href="details.php?ID=2641&amp;coverID=1604" class="s2 s2_cover">cover</a> <a
-            href="/music/download.php?sid=16206" class="s2 s2_music">music</a>
-        </div>
-        <div class="gpic"><a href="details.php?ID=2641"><img src="/gfx/0.gif#thumbs/thrust.png" alt="Thrust"
-              class="lazy-load"></a></div>
-      </li>
-      <li>
-        <div class="ginfo">
-          <h2><a href="details.php?ID=2642">Thrust II</a></h2><a href="?year=1988" rel="nofollow">1988</a> <a
-            href="?publisher=Firebird">Firebird</a><br><span class="genre"><a href="?genre=Arcade"
-              rel="nofollow">Arcade</a>, <a href="?genre=Arcade%2C+Miscellaneous"
-              rel="nofollow">Miscellaneous</a></span><br><a href="details.php?ID=2642&amp;coverID=1605"
-            class="s2 s2_cover">cover</a> <a href="/music/download.php?sid=32869" class="s2 s2_music">music</a>
-        </div>
-        <div class="gpic"><a href="details.php?ID=2642"><img src="/gfx/0.gif#thumbs/thrust_ii.png" alt="Thrust II"
-              class="lazy-load"></a></div>
-      </li>
-      <li>
-        <div class="ginfo">
-          <h2><a href="details.php?ID=3790">Thrusta</a></h2><a href="?year=1984" rel="nofollow">1984</a> <a
-            href="?publisher=Software+Projects">Software Projects</a><br><span class="genre"><a href="?genre=Arcade"
-              rel="nofollow">Arcade</a>, <a href="?genre=Arcade%2C+Miscellaneous"
-              rel="nofollow">Miscellaneous</a></span><br><a href="details.php?ID=3790&amp;coverID=2132"
-            class="s2 s2_cover">cover</a>
-        </div>
-        <div class="gpic"><a href="details.php?ID=3790"><img src="/gfx/0.gif#thumbs/thrusta.png" alt="Thrusta"
-              class="lazy-load"></a></div>
-      </li>
-      <li>
-        <div class="ginfo">
-          <h2><a href="details.php?ID=3432">Thruster Ball</a></h2><a href="?year=1991" rel="nofollow">1991</a> <a
-            href="?publisher=Zzap%21+64">Zzap! 64</a><br><span class="genre"><a href="?genre=Shoot%27em+Up"
-              rel="nofollow">Shoot'em Up</a>, <a href="?genre=Shoot%27em+Up%2C+Miscellaneous"
-              rel="nofollow">Miscellaneous</a></span><br>
-        </div>
-        <div class="gpic"><a href="details.php?ID=3432"><img src="/gfx/0.gif#thumbs/thruster_ball.png"
-              alt="Thruster Ball" class="lazy-load"></a></div>
-      </li>
-    </ul>
-    <br>
-    <div class="forever"><strong>Tip:</strong> Get <a href="/links/redirect.php?id=1531" rel="external">C64 Forever</a>
-      for super-comfy C64 emulation with pre-installed games and other goodies!</div>
-  </div>
-  <div>
-    <div id="footer"><span>A sister site to <a href="http://www.lemonamiga.com" rel="external">Lemon Amiga</a>.
-        Made in Sweden by <a href="/help/staff.php">Kim Lemon</a> 1998-2021.<br>
-        Friends: <a href="http://www.generate-password.com"
-          title="Password Generator - Generate random & secure passwords online" rel="external">Password Generator</a>,
-        <a href="http://www.coolaspel.nu" title="Coola onlinespel!" rel="external">Onlinespel</a></span></div>
-  </div>
-  <script type="text/javascript" src="/i/js.php"></script>
-  <script type='text/javascript'>
-    var preload_list = ['mega_thrusterball:4', 'thrust:4', 'thrust_ii:7', 'thrusta:3', 'thruster_ball:3']
-      ; ae('load', preload, false);
-  </script>
-</body>
+        <div class="container grid-container"><div class="row">
+          <div class="col-6 col-md-3 game-col game-col-1" id="game-1640">
+            <div class="grid-col-content"><div class="grid-screenshot-container"><span class="grid-vote-score rating-4"><i class="fa-solid fa-star"></i>7.8</span><a href="/game/mega-thrusterball"><img src="/assets/images/games/screens/mega_thrusterball/mega_thrusterball.png" width="320" height="200" alt="Mega Thrusterball" class="grid-screenshot"></a></div><div><div class="game-grid-title">
+              <a href="/game/mega-thrusterball">Mega Thrusterball</a>
+            </div>
+              <div class="grid-info"><a href="?list_year=1994&list_title=thrust" class="grid-credits">1994</a>, <a href="?list_publisher=Loadstar&list_title=thrust" class="grid-credits">Loadstar</a><br>
+              </div>
+              <div class="grid-category"><a href="?list_genre=Shoot%27em%20Up&list_sub_genre=Miscellaneous&list_title=thrust">Shoot'em Up - Miscellaneous</a></div>
+            </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 game-col game-col-2" id="game-2641">
+            <div class="grid-col-content"><div class="grid-screenshot-container"><span class="grid-vote-score rating-4"><i class="fa-solid fa-star"></i>8.09</span><a href="/game/thrust"><img src="/assets/images/games/screens/thrust/thrust.png" width="320" height="200" alt="Thrust" class="grid-screenshot"></a></div><div><div class="game-grid-title">
+              <a href="/game/thrust">Thrust</a>
+            </div>
+              <div class="grid-info"><a href="?list_year=1986&list_title=thrust" class="grid-credits">1986</a>, <a href="?list_publisher=Firebird&list_title=thrust" class="grid-credits">Firebird</a><br>
+              </div>
+              <div class="grid-category"><a href="?list_genre=Arcade&list_sub_genre=Miscellaneous&list_title=thrust">Arcade - Miscellaneous</a></div>
+            </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 game-col game-col-3" id="game-2642">
+            <div class="grid-col-content"><div class="grid-screenshot-container"><span class="grid-vote-score rating-2"><i class="fa-solid fa-star"></i>4.59</span><a href="/game/thrust-2"><img src="/assets/images/games/screens/thrust_ii/thrust_ii.png" width="320" height="200" alt="Thrust II" class="grid-screenshot"></a></div><div><div class="game-grid-title">
+              <a href="/game/thrust-2">Thrust II</a>
+            </div>
+              <div class="grid-info"><a href="?list_year=1988&list_title=thrust" class="grid-credits">1988</a>, <a href="?list_publisher=Firebird&list_title=thrust" class="grid-credits">Firebird</a><br>
+              </div>
+              <div class="grid-category"><a href="?list_genre=Arcade&list_sub_genre=Miscellaneous&list_title=thrust">Arcade - Miscellaneous</a></div>
+            </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 game-col game-col-4" id="game-3790">
+            <div class="grid-col-content"><div class="grid-screenshot-container"><span class="grid-vote-score rating-3"><i class="fa-solid fa-star"></i>6.71</span><a href="/game/thrusta"><img src="/assets/images/games/screens/thrusta/thrusta.png" width="320" height="200" alt="Thrusta" class="grid-screenshot"></a></div><div><div class="game-grid-title">
+              <a href="/game/thrusta">Thrusta</a>
+            </div>
+              <div class="grid-info"><a href="?list_year=1984&list_title=thrust" class="grid-credits">1984</a>, <a href="?list_publisher=Software%20Projects&list_title=thrust" class="grid-credits">Software Projects</a><br>
+              </div>
+              <div class="grid-category"><a href="?list_genre=Arcade&list_sub_genre=Miscellaneous&list_title=thrust">Arcade - Miscellaneous</a></div>
+            </div>
+            </div>
+          </div></div><div class="row">
+          <div class="col-6 col-md-3 game-col game-col-1" id="game-3432">
+            <div class="grid-col-content"><div class="grid-screenshot-container"><span class="grid-vote-score rating-3"><i class="fa-solid fa-star"></i>6.38</span><a href="/game/thruster-ball"><img src="/assets/images/games/screens/thruster_ball/thruster_ball.png" width="320" height="200" alt="Thruster Ball" class="grid-screenshot"></a></div><div><div class="game-grid-title">
+              <a href="/game/thruster-ball">Thruster Ball</a>
+            </div>
+              <div class="grid-info"><a href="?list_year=1991&list_title=thrust" class="grid-credits">1991</a>, <a href="?list_publisher=Zzap%21%2064&list_title=thrust" class="grid-credits">Zzap! 64</a><br>
+              </div>
+              <div class="grid-category"><a href="?list_genre=Shoot%27em%20Up&list_sub_genre=Miscellaneous&list_title=thrust">Shoot'em Up - Miscellaneous</a></div>
+            </div>
+            </div>
+          </div></div></div>
+        <div class="alert alert-warning cloanto-bottom" role="alert">
+          <strong>Tip:</strong> Get <a href="/links/redirect.php?id=1531" target="_blank" rel="noopener">C64 Forever <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a> for super-comfy C64 emulation, pre-installed games and other goodies! </div>
+      </div>
 
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-about">
+    <span class="footer-text-1">A bros site to <a href="https://www.lemonamiga.com">Lemon Amiga</a>. </span>
+    <span class="footer-text-2">Made <span class="footer-who">by <a href="/help/kim-lemon.php">Kim Lemon</a> & <a href="/help/team.php">The Lemoners</a></span> 1998-2023.</span>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="/assets/js/functions.js"></script>
+<script>
+  if (getCookie('theme') == '') {
+    setCookie('theme', 'lemon64', 365);
+  }
+</script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+</body>
 </html>

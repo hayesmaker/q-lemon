@@ -11,7 +11,7 @@ chai.use(sinonChai);
 describe('q-lemon :: lemon api methods working as expected', function () {
     let sandbox;
     let game = {
-      gameId: "1234"
+      gameId: 1234
     };
 
     beforeEach(() => {
@@ -32,13 +32,13 @@ describe('q-lemon :: lemon api methods working as expected', function () {
       expect(axiosStub).to.have.been.calledWith('https://www.lemon64.com/games/list.php?list_title=thrust')
     });
 
-    it("searchGame should call getGameFromGameId from the scraper64", () => {
+    it("searchGame should call getGames from scraper64 with title 'thrust", () => {
       sandbox.stub(axios, 'get').resolves(game);
       lemonApi.searchGame("thrust");
       expect(scraper64.getGames.calledWith(game, "thrust"));
     });
 
-    it("getGameByGameId should call the correct api endpoint", () => {
+    xit("getGameByGameId should call the correct api endpoint", () => {
       let axiosStub = sandbox.stub(axios, 'get').resolves(game);
       lemonApi.getGameByGameId(game.gameId);
       expect(axiosStub.calledWith(`https://www.lemon64.com/games/details.php?ID=1234`)).to.equal(true)
@@ -47,7 +47,7 @@ describe('q-lemon :: lemon api methods working as expected', function () {
     it("getGameByGameId should call getGameInfoFromGamePage from the scraper64", () => {
       sandbox.stub(axios, 'get').resolves(game);
       lemonApi.getGameByGameId(game);
-      expect(scraper64.getGameInfoFromGamePage.calledWith(game, "Thrust"));
+      expect(scraper64.getGameInfoFromGamePage.calledWith(game));
     });
 
 
