@@ -4,6 +4,8 @@ import chai from "chai";
 import sinon from "sinon";
 import sinonChai from 'sinon-chai';
 import axios from "axios";
+import path from "path";
+import fs from "fs";
 
 const expect = chai.expect;
 chai.use(sinonChai);
@@ -49,6 +51,16 @@ describe('q-lemon :: lemon api methods working as expected', function () {
       lemonApi.getGameByGameId(game);
       expect(scraper64.getGameInfoFromGamePage.calledWith(game));
     });
+
+    xit("searchGame should ", () => {
+        let mockPath = path.join(__dirname, 'test/__mocks__/search-page-result5.html');
+        const data = fs.readFileSync(mockPath, 'utf8');
+
+
+    });
+
+
+
 
 
 });

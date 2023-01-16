@@ -85,6 +85,14 @@ describe("q-lemon :: scraper-64", () => {
       expect(game.year).to.equal("1986")
     })
 
+    it("getGameInfoFromGamePage on Ark Pandora should return John Stevenson, John Meegan: ", () => {
+      let mockPath = path.join(__dirname, 'test/__mocks__/game-ark-pandora.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.developer).to.equal("John Stevenson, John Meegan");
+    });
+
     it("getGameInfoFromGamePage should return publisher: Firebird", () => {
       let mockPath = path.join(__dirname, 'test/__mocks__/game-thrust.html');
       const data = fs.readFileSync(mockPath, 'utf8');
@@ -176,11 +184,11 @@ describe("q-lemon :: scraper-64", () => {
           .include(__urlRoot  + '/assets/images/games/covers/medium/thrust_01.jpg');
     });
 
-
-
   });
 
-  describe("given an example cover image page html", () => {
+
+
+  describe("@deprecated - given an example cover image page html", () => {
 
     it("getCoverImageFromPage can return the Thrust cover image src", () => {
 
