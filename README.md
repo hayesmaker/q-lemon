@@ -9,6 +9,6 @@ for gloabal cli usage
 ## usage
 from anywhere run
 
-`qlemon --name="Thrust"`
+`qlemon --title="Thrust"`
 
 where Thrust can be any game - search is not case sensitive 
