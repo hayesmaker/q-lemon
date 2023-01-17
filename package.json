@@ -1,6 +1,6 @@
 {
   "name": "q-lemon",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "cli tool for querying lemon 64 and returning info on specific games",
   "main": "index.js",
   "scripts": {
