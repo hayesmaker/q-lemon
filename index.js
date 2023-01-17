@@ -63,7 +63,7 @@ const yargs = _yargs(hideBin(process.argv));
         console.log(msgBox);
 
         const myGames = await lemonApi.searchAndHydrate(search);
-        console.log('myGames::', myGames);
+        console.log('Search with all returned:', JSON.stringify(myGames));
 
     }
 
@@ -123,7 +123,7 @@ const yargs = _yargs(hideBin(process.argv));
                 // console.log("End search", err);
             })
             .finally(() => {
-                console.log('Search Complete', game);
+                console.log('Search Complete', JSON.stringify(game));
             })
     }
 
@@ -170,12 +170,17 @@ const yargs = _yargs(hideBin(process.argv));
                                     return d.gameTitle === selected;
                                 });
                                 const result = await lemonApi.hydrateGame(selectedGame);
-                                console.log('Result:', result);
+                                console.log('Result:', JSON.stringify(result);
                             });
                         }
                     });
             }
         });
+        return;
+    }
+
+    if (all) {
+        doHydrateSearch(title);
         return;
     }
 
