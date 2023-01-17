@@ -139,7 +139,6 @@ const yargs = _yargs(hideBin(process.argv));
     if (!title) {
 
         prompt(questions).then((answers) => {
-            console.log('answers', answers);
             if (answers.searchInput && all) {
                 doHydrateSearch(answers.searchInput);
                 return;
