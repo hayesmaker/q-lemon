@@ -13,12 +13,17 @@ for gloabal cli usage
 ## usage
 from anywhere run
 
-`qlemon --title="Thrust"`
+`qlemon`
+- A Prompt will ask you, type a game title, or part of title to search
 
-- Where Thrust can be any game - search is not case sensitive.
+- Next select the game from the search results displayed
 
-### Known Issues:
-- Where title includes a "the", lemon normally appends this to the
-end of the title string: eg: Last Ninja, The.  The title matcher has
-an issue finding these games, though search results should still be fine.
+`qlemon --title=Thrust`
+- To search by title from the command line, add --title (or -t flag) and add the title. Quotes
+are only required if the title is more than one word.
 
+`qlemon -t="last ninja"`
+- multiple word titles should be enclosed in quotes
+
+`qlemon --title=thrust --all`
+- Search by title and display all search results in your console.
