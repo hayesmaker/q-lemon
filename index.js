@@ -33,13 +33,22 @@ const yargs = _yargs(hideBin(process.argv));
                 type: 'boolean',
                 alias: 'a',
                 demandOption: false,
-                description: 'Show all search results'
+                description: 'Grab data for all search results'
+            })
+        .option(
+            'id',
+            {
+                type: 'string',
+                alias: 'i',
+                demandOption: false,
+                description: 'Search by Lemon game id eg: `qlemon -i 2641`'
             })
         .argv;
 
     let title = argv.title;
     let site = argv.site;
     let all = argv.all;
+    let searchId = argv.id;
 
     let game = {
         foundGame: null,
@@ -102,28 +111,21 @@ const yargs = _yargs(hideBin(process.argv));
             })
             .then(function (foundGame) {
                 if (foundGame) {
-                    game.foundGame = foundGame;
                     return lemonApi.getGameByGameId(foundGame.gameId);
-                    //return lemonApi.getCoverImageByGameId(foundGame.gameId);
                 }
             })
             .then(function (res) {
                 if (res) {
-                    game.metadata = res;
-                    return game;
+                    lemonApi.getCoverImageByGameId(res, 'c64');
+                    console.log('Searched Title Match!', res);
+                    return res;
                 }
-            })
-            .then(function (res) {
-                if (res && res.metadata && res.metadata.scans && res.metadata.scans.length > 0) {
-                    lemonApi.getCoverImageByGameId(res, site);
-                }
-                //return lemonApi.getCoverImageByGameId(game.foundGame.gameId);
             })
             .catch(function (err) {
                 // console.log("End search", err);
             })
             .finally(() => {
-                console.log('Search Complete', game);
+                console.log('Search Completed');
             })
     }
 
@@ -136,7 +138,7 @@ const yargs = _yargs(hideBin(process.argv));
         }
     ];
 
-    if (!title) {
+    if (!title && !searchId) {
 
         prompt(questions).then((answers) => {
             if (answers.searchInput && all) {
@@ -179,11 +181,22 @@ const yargs = _yargs(hideBin(process.argv));
         return;
     }
 
+    if (searchId) {
+        let gameById = await lemonApi.getGameByGameId(searchId);
+        if (gameById) {
+            lemonApi.getCoverImageByGameId(gameById, 'c64');
+            // lemonApi.addDataByPage(game, )
+            console.log('Search Result:', gameById);
+        }
+        return;
+    }
+
     if (all) {
         doHydrateSearch(title);
         return;
     }
 
+    // if qlemon is called with only title
     doSearch(title);
 })();
 
