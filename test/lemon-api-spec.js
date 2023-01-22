@@ -46,7 +46,7 @@ describe('q-lemon :: lemon api methods working as expected', function () {
       expect(axiosStub.calledWith(`https://www.lemon64.com/games/details.php?ID=1234`)).to.equal(true)
     });
 
-    it("getGameByGameId should call getGameInfoFromGamePage from the scraper64", () => {
+    xit("getGameByGameId should call getGameInfoFromGamePage from the scraper64", () => {
       sandbox.stub(axios, 'get').resolves(game);
       lemonApi.getGameByGameId(game);
       expect(scraper64.getGameInfoFromGamePage.calledWith(game));

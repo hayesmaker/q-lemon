@@ -90,7 +90,8 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.developer).to.equal("John Stevenson, John Meegan");
+      expect(game.developer).to.be.an('array').that.does
+          .include('John Stevenson').and.does.include('John Meegan');
     });
 
     it("getGameInfoFromGamePage should return publisher: Firebird", () => {
@@ -106,7 +107,8 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.developer).to.equal("Jeremy Smith")
+      expect(game.developer).to.be.an('array').that.does
+          .include('Jeremy Smith');
     })
 
     it("getGameInfoFromGamePage should return musician: Rob Hubbard", () => {
@@ -114,7 +116,8 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.musician).to.equal("Rob Hubbard")
+      expect(game.musician).to.be.an('array').that.does
+          .include('Rob Hubbard');
     })
 
     it("getGameInfoFromGamePage should return correct genre Arcade", () => {
@@ -184,7 +187,36 @@ describe("q-lemon :: scraper-64", () => {
           .include(__urlRoot  + '/assets/images/games/covers/medium/thrust_01.jpg');
     });
 
+
+    it("getGameInfoFromGamePage should return correct retail prices", () => {
+      let mockPath = path.join(__dirname, 'test/__mocks__/game-turrican.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.retail).to.be.an('array').that.does
+          .include('£9.99 Tape');
+    });
+
+    it("getGameInfoFromGamePage should return correct retail prices", () => {
+      let mockPath = path.join(__dirname, 'test/__mocks__/game-turrican.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.retail).to.be.an('array').that.does
+          .include('£14.99 Disk');
+    });
+
+    it("getGameInfoFromGamePage should return correct retail prices", () => {
+      let mockPath = path.join(__dirname, 'test/__mocks__/game-turrican.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.retail.length).to.eql(3);
+    });
+
   });
+
+
 
 
 

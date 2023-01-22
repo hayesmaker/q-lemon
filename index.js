@@ -7,6 +7,7 @@ import inquirer from "inquirer";
 import chalk from 'chalk';
 import boxen from 'boxen';
 import lemonApi from './lib/lemon-api.js';
+import "./package.json";
 
 const yargs = _yargs(hideBin(process.argv));
 
@@ -50,12 +51,12 @@ const yargs = _yargs(hideBin(process.argv));
     let all = argv.all;
     let searchId = argv.id;
 
-    let game = {
+/*    let game = {
         foundGame: null,
         metadata: null,
         image: null,
         covers: [],
-    };
+    };*/
 
     const doHydrateSearch = async (search) => {
 
@@ -201,6 +202,8 @@ const yargs = _yargs(hideBin(process.argv));
 })();
 
 export default lemonApi;
+
+export * as metadata from './package.json';
 
 
 
