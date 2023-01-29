@@ -6,8 +6,8 @@ import {hideBin} from 'yargs/helpers';
 import inquirer from "inquirer";
 import chalk from 'chalk';
 import boxen from 'boxen';
-import lemonApi from './lib/lemon-api.js';
-import "./package.json";
+import lemonApi from './lib/lemon-api.mjs';
+// import "./package.json" assert { type: "json" };
 
 const yargs = _yargs(hideBin(process.argv));
 
@@ -203,7 +203,9 @@ const yargs = _yargs(hideBin(process.argv));
 
 export default lemonApi;
 
-export * as metadata from './package.json';
+// export * as metadata from './package.json';
+
+// module.exports = lemonApi;
 
 
 
