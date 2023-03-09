@@ -1,11 +1,22 @@
-import lemonApi from "../lib/lemon-api.js";
-import scraper64 from "../lib/scraper-64.js";
+// import lemonApi from "../lib/lemon-api.mjs";
+// import scraper64 from "../lib/scraper-64.mjs";
+
+const lemonApi = require('../lib/lemon-api.js');
+const scraper64 = require('../lib/scraper-64.js');
+const chai = require('chai');
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
+
+/*
 import chai from "chai";
 import sinon from "sinon";
 import sinonChai from 'sinon-chai';
 import axios from "axios";
 import path from "path";
-import fs from "fs";
+import fs from "fs";*/
 
 const expect = chai.expect;
 chai.use(sinonChai);

@@ -1,18 +1,25 @@
 #!/usr/bin/env node
 
-import _yargs from 'yargs';
-import {hideBin} from 'yargs/helpers';
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+const boxen = require('boxen');
 
-import inquirer from "inquirer";
-import chalk from 'chalk';
-import boxen from 'boxen';
-import lemonApi from './lib/lemon-api.mjs';
-// import "./package.json" assert { type: "json" };
+// import inquirer from "inquirer";
+// import chalk from 'chalk';
+// import boxen from 'boxen';
 
-const yargs = _yargs(hideBin(process.argv));
+// import lemonApi from './lib/lemon-api.mjs';
+
+const lemonApi = require('./lib/lemon-api.js');
+
+// const argv = yargs(hideBin(process.argv)).argv
+// const yargs = _yargs(hideBin(process.argv));
 
 (async () => {
-    const argv = await yargs
+
+    const argv = yargs(hideBin(process.argv))
         .option('title',
             {
                 alias: 't',
@@ -201,7 +208,7 @@ const yargs = _yargs(hideBin(process.argv));
     doSearch(title);
 })();
 
-export default lemonApi;
+// export default lemonApi;
 
 // export * as metadata from './package.json';
 
