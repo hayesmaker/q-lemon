@@ -111,7 +111,6 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      console.log('game.developer', game.developer);
       expect(game.developer).to.be.an('array').that.does
           .include('Jeremy Smith');
     })
