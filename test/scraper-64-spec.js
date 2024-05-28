@@ -111,6 +111,7 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
+      console.log('game.developer', game.developer);
       expect(game.developer).to.be.an('array').that.does
           .include('Jeremy Smith');
     })
@@ -162,7 +163,7 @@ describe("q-lemon :: scraper-64", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.lemonScore).to.equal('N/A');
+      expect(game.lemonScore).to.equal('8.09');
     });
 
     it("getGameInfoFromGamePage should return correct scans array length", () => {
@@ -216,6 +217,14 @@ describe("q-lemon :: scraper-64", () => {
 
       let game = scraper.getGameInfoFromGamePage(data);
       expect(game.retail.length).to.eql(3);
+    });
+
+    it("getGameInfoFromGamePage should return correct voter score 8.73", () => {
+      let mockPath = path.join(mocksRoot, 'game-turrican.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.voterScore).to.equal("8.73");
     });
 
   });

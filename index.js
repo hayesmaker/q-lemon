@@ -11,7 +11,7 @@ const boxen = require('boxen');
 // import boxen from 'boxen';
 
 // import lemonApi from './lib/lemon-api.mjs';
-
+const package = require('./package.json');
 const lemonApi = require('./lib/lemon-api.js');
 
 // const argv = yargs(hideBin(process.argv)).argv
@@ -86,7 +86,7 @@ const lemonApi = require('./lib/lemon-api.js');
 
     const doSearch = (search) => {
 
-        const greeting = chalk.white.bold(`Q-Lemon - Query Lemon64\n\nSearching for: ${search}`);
+        const greeting = chalk.white.bold(`Query Lemon64\n\nSearching for: ${search}\n\nPowered by q-Lemon v${package.version}`);
         const boxenOptions = {
             padding: 1,
             margin: 1,
