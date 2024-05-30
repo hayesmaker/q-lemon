@@ -226,6 +226,14 @@ describe("q-lemon :: scraper-64", () => {
       expect(game.voterScore).to.equal("8.73");
     });
 
+    it("getGameInfoFromGamePage should return 4 screenshots", () => {
+      let mockPath = path.join(mocksRoot, 'game-thrust2.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.screenshots.length).to.equal(4);
+    });
+
   });
 
 
