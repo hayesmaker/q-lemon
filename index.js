@@ -33,7 +33,7 @@ const lemonApi = require('./lib/lemon-api.js');
                 type: 'string',
                 alias: 's',
                 demandOption: false,
-                description: 'Support for multiple game sites: coming soon'
+                description: 'Current supported sites: lemon64 (64) and lemonamiga (amiga)'
             })
         .option(
             'all',
@@ -67,7 +67,7 @@ const lemonApi = require('./lib/lemon-api.js');
 
     const doHydrateSearch = async (search) => {
 
-        const greeting = chalk.white.bold(`Q-Lemon - Query Lemon64\n\nHydrate Search: ${search}`);
+        const greeting = chalk.white.bold(`Q-Lemon - Query Lemon\n\nHydrate Search: ${search}`);
         const boxenOptions = {
             padding: 1,
             margin: 1,
@@ -84,9 +84,10 @@ const lemonApi = require('./lib/lemon-api.js');
 
     }
 
-    const doSearch = (search) => {
+    const doSearch = (search, site="64") => {
+        console.log('doSearch', search, site);
 
-        const greeting = chalk.white.bold(`Query Lemon64\n\nSearching for: ${search}\n\nPowered by q-Lemon v${package.version}`);
+        const greeting = chalk.white.bold(`Query Lemon ${site}\n\nSearching for: ${search}\n\nPowered by q-Lemon v${package.version}`);
         const boxenOptions = {
             padding: 1,
             margin: 1,
@@ -98,7 +99,7 @@ const lemonApi = require('./lib/lemon-api.js');
         const msgBox = boxen(greeting, boxenOptions);
         console.log(msgBox);
 
-        lemonApi.searchGame(search)
+        lemonApi.searchGame(search, site)
             .then((res) => {
                 if (res && res.length !== undefined) {
                     console.log('search returned:', res);
@@ -205,16 +206,8 @@ const lemonApi = require('./lib/lemon-api.js');
     }
 
     // if qlemon is called with only title
-    doSearch(title);
+    doSearch(title, site);
 })();
-
-// export default lemonApi;
-
-// export * as metadata from './package.json';
-
-// module.exports = lemonApi;
-
-
 
 
 

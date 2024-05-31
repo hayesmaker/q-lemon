@@ -1,0 +1,245 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Amiga Games - Lemon Amiga Game Database</title>
+    <meta name="description" content="Amiga games database with information about every Amiga game ever released!">
+    <meta name="keywords" content="amiga, games">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/inc/featherlight/featherlight.css">
+    <link rel="stylesheet" href="/inc/stylesheet.css">
+    <link rel="stylesheet" href="/inc/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/images/navigation/landscapes/forest/style.css" id="landscape-css">
+    <link rel="search" href="/inc/search/lemonamiga.xml" type="application/opensearchdescription+xml" title="Lemon Amiga">
+    <link rel="apple-touch-icon" sizes="152x152" href="/inc/favicons/apple-touch-icon.png?v=NmaARynnXA">
+    <link rel="icon" type="image/png" sizes="32x32" href="/inc/favicons/favicon-32x32.png?v=NmaARynnXA">
+    <link rel="icon" type="image/png" sizes="16x16" href="/inc/favicons/favicon-16x16.png?v=NmaARynnXA">
+    <link rel="manifest" href="/inc/favicons/site.webmanifest?v=NmaARynnXA">
+    <link rel="mask-icon" href="/inc/favicons/safari-pinned-tab.svg?v=NmaARynnXA" color="#2b5797">
+    <link rel="shortcut icon" href="/inc/favicons/favicon.ico?v=NmaARynnXA">
+    <meta name="apple-mobile-web-app-title" content="Lemon Amiga">
+    <meta name="application-name" content="Lemon Amiga">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="/inc/favicons/browserconfig.xml?v=NmaARynnXA">
+    <meta name="theme-color" content="#ffffff">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2170817-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2170817-1');
+    </script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="kimlemon" data-description="Support me on Buy me a coffee!" data-message data-color="#90abeb" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</head>
+<body>
+<div id="bug1" style="position:absolute; z-index:20; top:71px; left:45%;">
+    <img src="/images/underwater/bugs/4.gif" width="44" height="15">
+</div>
+<div id="bug2" style="position:absolute; z-index:20; top:71px; left:65%;">
+    <img src="/images/underwater/bugs/2.gif" width="44" height="15">
+</div>
+
+<nav class="top-navigation " style="background-image: url('/images/navigation/landscapes/forest/background.gif');">
+    <div class="navigation-wrapper">
+        <table class="navigation-container">
+            <tbody>
+            <tr>
+                <td class="align-center logo-sign"><a href="/"><img src="/images/navigation/signs/logo.gif" alt="Home"></a></td>
+                <td class="align-center hide-mobile" style="width: 37px;"><img src="/images/navigation/landscapes/forest/mushroom.gif" width="37" height="32" alt onclick="alert('Mushrooooooom!!! It\'s poisonous so stay away.');"></td>
+                <td class="align-center"><a href="/games/"><img src="/images/navigation/signs/games.gif" width="51" height="30" alt="Games"></a></td>
+                <td class="hide-mobile" style="width: 14px;"><img src="/images/navigation/landscapes/forest/flower.gif" width="14" height="15" alt onclick="alert('Please don\'t mess with the flowers. Thank you.');"></td>
+                <td class="sign-community align-center"><a href="/forum/"><img src="/images/navigation/signs/community.gif" width="72" height="30" alt="Community"></a></td>
+                <td class="align-center hide-mobile" style="width: 60px;"><img src="/images/navigation/heroes/174.gif" style="transform: none;" alt onclick="alert('Ahem?!');"></td>
+                <td class="align-center"><a href="/help/"><img src="/images/navigation/signs/help.gif" width="39" height="30" alt="Help"></a></td>
+                <td class="hide-mobile" style="width: 14px;"><img src="/images/navigation/landscapes/forest/flower.gif" width="14" height="15" alt onclick="alert('You can smoke this flower, but it\'s not recommended.');"></td>
+                <td class="align-center"><a href="/links/"><img src="/images/navigation/signs/links.gif" width="42" height="28" alt="Links"></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="navigation-user " style="margin-right: 35px;">
+            <button type="button" onclick="document.location.href = '/forum/ucp.php?mode=login';">
+                <strong><img src="/images/navigation/icons/login.png" class="selector-icon"> Login</strong>
+            </button>
+        </div>
+        <div class="dropdown landscape-selector dropleft ">
+            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/navigation/icons/landscape.png" class="selector-icon" style="width: 16px; margin-top: 1px; margin-right: 0;">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <h6 class="dropdown-header">Landscape options</h6>
+                <a class="dropdown-item" href="#" onclick="toggleStickyNavigation('1')">Sticky header: <span class="text-danger">Off</span></a>
+                <a class="dropdown-item hide-mobile" style="display: list-item;" href="#" onclick="toggleBubbles('1')">Bubbles: <span class="text-danger">Off</span></a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Landscape theme</h6>
+                <a class="dropdown-item" href="#" onclick="landscape('random')">Random each load</a>
+                <a class="dropdown-item" href="#" onclick="landscape('amiga_3x')">AmigaOS 3.1</a>
+                <a class="dropdown-item" href="#" onclick="landscape('beach')">Beach</a>
+                <a class="dropdown-item" href="#" onclick="landscape('beast')">Beast</a>
+                <a class="dropdown-item" href="#" onclick="landscape('brian')">Brian</a>
+                <a class="dropdown-item" href="#" onclick="landscape('desert')">Desert</a>
+                <a class="dropdown-item" href="#" onclick="landscape('dizzy')">Dizzy</a>
+                <a class="dropdown-item" href="#" onclick="landscape('flink')">Flink</a>
+                <a class="dropdown-item active" href="#" onclick="landscape('forest')">Forest <span class="gray small-text">(default)</span></a>
+                <a class="dropdown-item" href="#" onclick="landscape('giana')">Giana</a>
+                <a class="dropdown-item" href="#" onclick="landscape('grave')">Grave</a>
+                <a class="dropdown-item" href="#" onclick="landscape('jungle')">Jungle</a>
+                <a class="dropdown-item" href="#" onclick="landscape('mario')">Mario</a>
+                <a class="dropdown-item" href="#" onclick="landscape('mars')">Mars</a>
+                <a class="dropdown-item" href="#" onclick="landscape('putty')">Putty</a>
+                <a class="dropdown-item" href="#" onclick="landscape('ruff')">Ruff</a>
+                <a class="dropdown-item" href="#" onclick="landscape('hired')">Hired</a>
+                <a class="dropdown-item" href="#" onclick="landscape('tropic')">Tropic</a>
+                <a class="dropdown-item" href="#" onclick="landscape('turrican')">Turrican</a>
+                <a class="dropdown-item" href="#" onclick="landscape('winter')">Winter</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container content-above">
+    <div class="row">
+
+        <div class="col-md-4 themed-grid-col order-md-2">
+
+            <div class="box">
+                <div class="box-header shadow-text bg-bubble-2">
+                    <h2><i class="fas fa-search"></i> Search Games</h2>
+                </div>
+                <div class="box-content">
+                    <div class="box-text">
+                        <form action="/games/list.php" method="get" id="game_search">
+                            <div class="quick-search">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width: 100%; position: relative;">
+                                            <script>
+                                              if (window.navigator.maxTouchPoints || 'ontouchstart' in document) {
+                                                document.write('<input type="text" autocomplete="off" value="turd " name="list_title" minlength="2" required placeholder="Search 4800+ games...">');
+                                              } else {
+                                                document.write('<input type="text" autocomplete="off" value="turd " name="list_title" minlength="2" required placeholder="Search 4800+ games..." autofocus>');
+                                              }
+                                            </script>
+                                            <div class="live-search-result"></div>
+                                        </td>
+                                        <td><button class="button button-large shadow-text" type="submit" form="game_search"><div>Go!</div></button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <p><a href="/games/advanced_search.php" rel="nofollow">Go to Advanced Search <i class="fas fa-arrow-alt-right" aria-hidden="true"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-8 themed-grid-col order-md-1">
+            <div class="hide-mobile">
+
+                <div class="box first-box amiga-forever-top">
+                    <div class="box-header shadow-text bg-bubble-2">
+                        <h2><i class="fas fa-lightbulb-exclamation"></i> Amiga Forever - Power & Beauty</h2>
+                    </div>
+                    <div class="box-content clearfix">
+                        <a href="/links/redirect.php?id=45"><img src="/images/amiga-forever-small-box.png" alt="Amiga Forever" class="float-right default-padding amiga-forever-image"></a>
+                        <div class="box-text">
+                            <p><a href="/links/redirect.php?id=45" target="blank">Get Amiga Forever <i class="fas fa-external-link-alt" aria-hidden="true"></i></a> and enjoy licensed Kickstart ROMs, pre-installed Workbench, games and demoscene productions. <span class="special-res">A true one-click emulation experience!</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="hide-desktop" style="margin-top: 8px;">
+
+                <div class="box">
+                    <div class="box-header shadow-text bg-bubble-2">
+                        <div class="box-empty-header"></div>
+                    </div>
+                    <div class="box-content clearfix" style="min-height: 10px;">
+                        <div class="box-text default-padding">
+                            <p style="margin-bottom: 0;"><a href="/links/redirect.php?id=45" target="blank">Get Amiga Forever <i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for licensed Kickstart ROMs.</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container wide-container">
+    <div class="row">
+        <div class="box">
+            <div class="box-header shadow-text bg-bubble-1">
+                <h2><i class="fas fa-joystick"></i> Games</h2>
+            </div>
+            <div class="box-content">
+                <div class="letters">
+                    <ul>
+                        <li><a href="?list_letter=0">0</a></li>
+                        <li><a href="?list_letter=A">A</a></li><li><a href="?list_letter=B">B</a></li><li><a href="?list_letter=C">C</a></li><li><a href="?list_letter=D">D</a></li><li><a href="?list_letter=E">E</a></li><li><a href="?list_letter=F">F</a></li><li><a href="?list_letter=G">G</a></li><li><a href="?list_letter=H">H</a></li><li><a href="?list_letter=I">I</a></li><li><a href="?list_letter=J">J</a></li><li><a href="?list_letter=K">K</a></li><li><a href="?list_letter=L">L</a></li><li><a href="?list_letter=M">M</a></li><li><a href="?list_letter=N">N</a></li><li><a href="?list_letter=O">O</a></li><li><a href="?list_letter=P">P</a></li><li><a href="?list_letter=Q">Q</a></li><li><a href="?list_letter=R">R</a></li><li><a href="?list_letter=S">S</a></li><li><a href="?list_letter=T">T</a></li><li><a href="?list_letter=U">U</a></li><li><a href="?list_letter=V">V</a></li><li><a href="?list_letter=W">W</a></li><li><a href="?list_letter=X">X</a></li><li><a href="?list_letter=Y">Y</a></li><li><a href="?list_letter=Z">Z</a></li> <li class="float-right hide-mobile"><a href="/games/">Games Home <i class="fas fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
+                <div class="display-options hide-mobile">
+                    Display:
+                    <i class="fas fa-th selected-display" data-toggle="tooltip" data-placement="top" title="Display in-game screenshots"></i>
+                    <a href="#" onclick="javascript:gamesDisplay('title');" data-toggle="tooltip" data-placement="top" title="Display title screenshots"><i class="fas fa-th"></i></a>
+                </div>
+                <div class="box-text search-filters">
+                    <table>
+                        <tbody>
+                        <tr><td><a href="/games/list.php?list_title=turd " title="Remove Filter"><i class="fas fa-minus-circle"></i></a> Game Title contains</td><td>: <strong>turd </strong></td></tr> </tbody>
+                    </table>
+                    <div class="search-result">
+                        <p>
+                            No games found.<br><a href="/games/advanced_search.php?list_title=turd " rel="nofollow">Refine (Advanced Search) <i class="fas fa-arrow-alt-right"></i></a> </p>
+                    </div>
+                </div>
+                <div class="container game-grid-container">
+                </div>
+                <div class="alert alert-warning" role="alert" style="width: 95%; margin: 0 auto; margin-bottom: 20px; text-align: center;">
+                    <strong>Tip:</strong> Get <a href="/links/redirect.php?id=45" target="blank">Amiga Forever <i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for super-comfy Amiga emulation with pre-installed Workbench, games and other goodies!
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-about">
+            <span class="footer-text-1">A bros site to <a href="https://www.lemon64.com">Lemon64</a>. </span>
+            <span class="footer-text-2">Made <span class="footer-who">by <a href="/help/kim-lemon.php">Kim Lemon</a> & <a href="/help/team.php">The Lemoners</a></span> 2004-2024.</span>
+        </div>
+        <div class="footer-navigation"><a href="/" title="Amiga News">Start</a> &nbsp;<a href="/games/" title="Amiga Games">Games</a> &nbsp;<a href="/forum/" title="Amiga Forum">Community</a> &nbsp;<a href="/help/" title="Amiga Help">Help</a> &nbsp;<a href="/links/" title="Amiga Goodies">Links</a></div>
+    </div>
+</div>
+
+<div class="alert text-center cookiealert" role="alert">
+    <b>Do you like cookies?</b> &#x1F36A; Lemon Amiga uses cookies to ensure you get the best experience on our website.
+    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+        I agree
+    </button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="/inc/featherlight/featherlight.js" charset="utf-8"></script>
+<script src="/inc/js/functions.js"></script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+</body>
+</html>
