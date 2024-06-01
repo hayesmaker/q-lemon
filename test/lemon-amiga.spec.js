@@ -11,7 +11,7 @@ const expect = chai.expect;
 chai.use(sinonChai);
 
 // const __dirname = fs.realpathSync('');
-const __urlRoot = 'https://www.lemon64.com'
+const __urlRoot = 'https://www.lemonamiga.com'
 const mocksRoot = path.join(__dirname, '__mocks__');
 
 
@@ -66,7 +66,7 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
       expect(game.name).to.equal("Postman Pat");
     });
 
-    it.only("getGameInfoFromGamePage should return game year 1989", () => {
+    it("getGameInfoFromGamePage should return game year 1989", () => {
       let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
@@ -74,40 +74,40 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
       expect(game.year).to.equal("1989");
     })
 
-    it("getGameInfoFromGamePage on Ark Pandora should return John Stevenson, John Meegan: ", () => {
+    it("getGameInfoFromGamePage publisher should be Alternative Software", () => {
       let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.developer).to.be.an('array').that.does
-        .include('John Stevenson').and.does.include('John Meegan');
+      expect(game.publisher).to.equal('Alternative Software');
     });
 
-    it("getGameInfoFromGamePage should return publisher: Firebird", () => {
-      let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
-      const data = fs.readFileSync(mockPath, 'utf8');
-
-      let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.publisher).to.equal("Firebird");
-    })
-
-    it("getGameInfoFromGamePage should return developer Jeremy Smith", () => {
+    it("getGameInfoFromGamePage developer should be Mark Mason", () => {
       let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
       expect(game.developer).to.be.an('array').that.does
-        .include('Jeremy Smith');
-    })
+        .include('Mark Mason');
+    });
 
-    it("getGameInfoFromGamePage should return musician: Rob Hubbard", () => {
-      let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
+    it("getGameInfoFromGamePage should return musician: Chris Hülsbeck", () => {
+      let mockPath = path.join(mocksRoot, 'amiga-page-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
       expect(game.musician).to.be.an('array').that.does
-        .include('Rob Hubbard');
-    })
+        .include('Chris Hülsbeck');
+    });
+
+    it("getGameInfoFromGamePage should return genres: 'Shoot\'em Up'", () => {
+      let mockPath = path.join(mocksRoot, 'amiga-page-turrican.html');
+      const data = fs.readFileSync(mockPath, 'utf8');
+
+      let game = scraper.getGameInfoFromGamePage(data);
+      expect(game.genres).to.be.an('array').that.does
+        .include('Shoot\'em Up');
+    });
 
     it("getGameInfoFromGamePage should return correct genre Arcade", () => {
       let mockPath = path.join(mocksRoot, 'amiga-page-postmanpat.html');
@@ -122,7 +122,7 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.genres).to.be.an('array').that.does.include('Miscellaneous');
+      expect(game.genres).to.be.an('array').that.does.include('Arcade');
     })
 
     xit("getGameInfoFromGamePage should return correct review info", () => {
@@ -143,41 +143,42 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
     })
 
     it("getGameInfoFromGamePage should return correct lemonScore info", () => {
-      let mockPath = path.join(mocksRoot, 'game-thrust.html');
+      let mockPath = path.join(mocksRoot, 'amiga-page-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.lemonScore).to.equal('8.09');
+      expect(game.lemonScore).to.equal('8.46');
     });
 
     it("getGameInfoFromGamePage should return correct scans array length", () => {
-      let mockPath = path.join(mocksRoot, 'game-thrust.html');
+      let mockPath = path.join(mocksRoot, 'amiga-page-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
       expect(game.scans.length).to.equal(2);
     });
 
-    it("getGameInfoFromGamePage should return correct scan image src at 0", () => {
-      let mockPath = path.join(mocksRoot, 'game-thrust.html');
+    it("getGameInfoFromGamePage should return cannon fodder cover image", () => {
+      let mockPath = path.join(mocksRoot, 'amiga-page-cannon.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
+
       expect(game.scans).to.be.an('array').that.does
-        .include(__urlRoot + '/assets/images/games/tapes/medium/thrust_01.jpg');
+        .include(__urlRoot + '/games/media/boxes/full/cannon_fodder_01.jpg');
     });
 
-    it("getGameInfoFromGamePage should return correct scan image src at 1", () => {
-      let mockPath = path.join(mocksRoot, 'game-thrust.html');
+    it("getGameInfoFromGamePage should return correct number of screenshots", () => {
+      let mockPath = path.join(mocksRoot, 'amiga-page-cannon.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.scans).to.be.an('array').that.does
-        .include(__urlRoot  + '/assets/images/games/covers/medium/thrust_01.jpg');
+      expect(game.screenshots).to.be.an('array');
+      expect(game.screenshots.length).to.equal(21);
     });
 
 
-    it("getGameInfoFromGamePage should return correct retail prices", () => {
+    xit("getGameInfoFromGamePage should return correct retail prices", () => {
       let mockPath = path.join(mocksRoot, 'game-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
@@ -186,7 +187,7 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
         .include('£9.99 Tape');
     });
 
-    it("getGameInfoFromGamePage should return correct retail prices", () => {
+    xit("getGameInfoFromGamePage should return correct retail prices", () => {
       let mockPath = path.join(mocksRoot, 'game-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
@@ -195,28 +196,12 @@ describe("q-lemon :: Lemon Amiga scraper", () => {
         .include('£14.99 Disk');
     });
 
-    it("getGameInfoFromGamePage should return correct retail prices", () => {
+    xit("getGameInfoFromGamePage should return correct retail prices", () => {
       let mockPath = path.join(mocksRoot, 'game-turrican.html');
       const data = fs.readFileSync(mockPath, 'utf8');
 
       let game = scraper.getGameInfoFromGamePage(data);
       expect(game.retail.length).to.eql(3);
-    });
-
-    it("getGameInfoFromGamePage should return correct voter score 8.73", () => {
-      let mockPath = path.join(mocksRoot, 'game-turrican.html');
-      const data = fs.readFileSync(mockPath, 'utf8');
-
-      let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.voterScore).to.equal("8.73");
-    });
-
-    it("getGameInfoFromGamePage should return 4 screenshots", () => {
-      let mockPath = path.join(mocksRoot, 'game-thrust2.html');
-      const data = fs.readFileSync(mockPath, 'utf8');
-
-      let game = scraper.getGameInfoFromGamePage(data);
-      expect(game.screenshots.length).to.equal(4);
     });
 
   });
