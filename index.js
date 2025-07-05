@@ -20,6 +20,12 @@ const lemonApi = require('./lib/lemon-api.js');
 (async () => {
 
     const argv = yargs(hideBin(process.argv))
+        .option('scan', {
+          alias: 'sc',
+          type: 'boolean',
+          demandOption: false,
+          description: 'Scan Lemon site for games',
+        })
         .option('title',
             {
                 alias: 't',
@@ -51,12 +57,33 @@ const lemonApi = require('./lib/lemon-api.js');
                 demandOption: false,
                 description: 'Search by Lemon game id eg: `qlemon -i 2641`'
             })
+        .option(
+            'random',
+            {
+                type: 'boolean',
+                alias: 'ra',
+                demandOption: false,
+                description: 'Get a random game from Lemon64'
+            }
+        )
+        .option(
+            'range',
+            {
+                type: 'string',
+                alias: 'r',
+                demandOption: false,
+                description: 'Range of game IDs to scan, eg: `qlemon -sc -r 100-200`'
+            }
+        )
         .argv;
 
     let title = argv.title;
     let site = argv.site;
     let all = argv.all;
     let searchId = argv.id;
+    let scan = argv.scan;
+    let range = argv.range;
+    let random = argv.random;
 
 /*    let game = {
         foundGame: null,
@@ -146,6 +173,83 @@ const lemonApi = require('./lib/lemon-api.js');
             message: 'Type a game to search for'
         }
     ];
+
+    if (random) {
+
+        const getRandomGame = async () => {
+            const game = await lemonApi.getRandomGame();
+            if (game) {
+                console.log(chalk.green.bold('Random Game Found!'));
+                console.log('Game ID:', game.gameId);
+                console.log('Game Title:', game.gameTitle);
+                lemonApi.getCoverImageByGameId(game, 'c64');
+            } else {
+                console.log(chalk.red.bold('No random game found.'));
+            }
+        }
+        await getRandomGame();
+        return;
+    }
+
+    if (scan) {
+
+        const nullGames = [];
+        const scanGameById = async (id) => {
+            let game = await lemonApi.getGameByGameId(id, 'c64');
+            if (game && game.gameTitle) {
+
+                if (parseInt(game.gameId) !== 1 && game.gameTitle.includes('1000 Miglia')) {
+                    console.log(chalk.yellow.bold(game.gameId + ' - Skipping game 1000 Miglia (this is a known issue with Lemon64)'));
+                    return;
+                }
+
+                console.log('Game by ID:', game.gameId, game.gameTitle);
+                // lemonApi.getCoverImageByGameId(game, 'c64');
+            } else {
+                console.log('No game found with ID:', id);
+                nullGames.push(id);
+            }
+        }
+
+        const printNullGames = () => {
+            if (nullGames.length > 0) {
+                console.log(chalk.red.bold('No games found for the following IDs:'));
+                nullGames.forEach((id) => {
+                    console.log(chalk.red(id));
+                });
+            } else {
+                console.log(chalk.green.bold('All game IDs scanned successfully.'));
+            }
+        }
+
+        if (range) {
+            const [start, end] = range.split('-').map(Number);
+            if (isNaN(start) || isNaN(end) || start < 0 || end < start) {
+                console.error('Invalid range specified. Please use a valid range like 100-200.');
+                return;
+            }
+            console.log(`Scanning games from ID ${start} to ${end}...`);
+            for (let i = start; i <= end; i++) {
+                await scanGameById(i);
+            }
+            printNullGames();
+            return;
+        }
+
+        if (searchId) {
+            await scanGameById(searchId);
+            printNullGames();
+            return
+        }
+
+        for (let i = 0; i <= 9000; i++) {
+            // console.log('Scanning game ID:', i);
+            await scanGameById(i);
+        }
+        printNullGames();
+        return
+    }
+
 
     if (!title && !searchId) {
 
