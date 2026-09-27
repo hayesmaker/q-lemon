@@ -4,6 +4,7 @@
   "description": "cli tool for querying lemon 64 and returning info on specific games",
   "main": "index.js",
   "scripts": {
+    "chrome:cdp": "google-chrome --remote-debugging-port=9222 --user-data-dir=\"$HOME/.qlemon-real-chrome\"",
     "test": "mocha"
   },
   "author": "hayesmaker64",
@@ -21,6 +22,7 @@
     "figlet": "^1.2.1",
     "inquirer": "^8.2.5",
     "lodash": "^4.17.21",
+    "playwright": "^1.63.0",
     "touch": "^3.1.0",
     "yargs": "^17.6.2"
   },
